@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-27T15:05:03.4523872+00:00",
+  "generated": "2026-11-27T16:12:12.7897767+00:00",
   "mode": "weekly",
   "title": "Week of Mon 23 Nov 2026 (NY time)",
   "days": [
@@ -124,7 +124,7 @@
       "day": "2026-11-23",
       "symbol": "CRWD",
       "name": "CrowdStrike Holdings, Inc.",
-      "capB": 217.0,
+      "capB": 216.0,
       "time": "TBC",
       "tag": "NQ"
     },
@@ -132,7 +132,7 @@
       "day": "2026-11-23",
       "symbol": "HPE",
       "name": "Hewlett Packard Enterprise Company",
-      "capB": 53.0,
+      "capB": 54.0,
       "time": "TBC",
       "tag": ""
     },
@@ -140,7 +140,7 @@
       "day": "2026-11-23",
       "symbol": "A",
       "name": "Agilent Technologies, Inc.",
-      "capB": 52.0,
+      "capB": 50.0,
       "time": "TBC",
       "tag": ""
     },
@@ -180,7 +180,7 @@
       "day": "2026-11-25",
       "symbol": "DE",
       "name": "Deere & Company",
-      "capB": 165.0,
+      "capB": 173.0,
       "time": "TBC",
       "tag": ""
     }
