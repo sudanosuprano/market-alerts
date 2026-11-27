@@ -44,3 +44,6 @@
 2026-11-27 21:40:13 NEW 20 headlines
 2026-11-27 22:37:47 NEW 20 headlines
 2026-11-27 22:37:55 NOTE [7] Goldman: ~$100B automated trend-following selling wave looms despite Friday rally | https://www.marketwatch.com/story/stocks-are-poised-for-a-friday-jump-right-into-a-100-billion-wave-of-automated-selling-goldman-sachs-warns-aba6440f?mod=mw_rss_topstories | pub=2026-11-27T10:54:00Z
+2026-11-27 23:43:48 NEW 28 headlines
+2026-11-27 23:44:00 NOTE [7] Nvidia Blackwell GB300 racks found at Shanghai site tied to Alice Huang, despite US curbs | https://www.bloomberg.com/news/videos/2026-11-27/blackwell-chips-found-at-alice-huang-linked-china-site-video | pub=2026-11-27T12:06:34Z
+2026-11-27 23:44:00 ALERT [8] New US tariffs on economies accused of excess manufacturing capacity; partners protest | https://www.bloomberg.com/news/videos/2026-11-27/us-partners-respond-to-new-tariffs-with-anger-diplomacy-video | pub=2026-11-27T11:50:49Z
