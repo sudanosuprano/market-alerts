@@ -42,3 +42,5 @@
 2026-11-27 19:34:31 ALERT [9] OIL: Houthi strike on Jazan refinery, Iranian drone attack in Kuwait kills two | https://www.bloomberg.com/news/videos/2026-11-27/horizons-middle-east-africa-11-27-2026-video | pub=2026-11-27T07:52:46Z
 2026-11-27 20:45:53 NEW 12 headlines
 2026-11-27 21:40:13 NEW 20 headlines
+2026-11-27 22:37:47 NEW 20 headlines
+2026-11-27 22:37:55 NOTE [7] Goldman: ~$100B automated trend-following selling wave looms despite Friday rally | https://www.marketwatch.com/story/stocks-are-poised-for-a-friday-jump-right-into-a-100-billion-wave-of-automated-selling-goldman-sachs-warns-aba6440f?mod=mw_rss_topstories | pub=2026-11-27T10:54:00Z
