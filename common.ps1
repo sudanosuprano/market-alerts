@@ -24,6 +24,7 @@ function Get-NtfyConfig {
   $cfgFile = Join-Path $PSScriptRoot 'config.json'
   $cfg = if (Test-Path $cfgFile) { Get-Content $cfgFile -Raw | ConvertFrom-Json } else { [pscustomobject]@{ server = 'https://ntfy.sh'; topic = $null; clickUrl = $null } }
   if ($env:NTFY_TOPIC) { $cfg.topic = $env:NTFY_TOPIC }
+  if ($cfg.topic) { $cfg.topic = ([string]$cfg.topic).Trim().TrimStart([char]0xFEFF) }   # stray newline/BOM = 404 from ntfy
   if (-not $cfg.server) { $cfg.server = 'https://ntfy.sh' }
   if (-not $cfg.topic) { throw 'No ntfy topic: set NTFY_TOPIC or create config.json' }
   $cfg
