@@ -4,79 +4,142 @@
 <meta charset="utf-8">
 <meta http-equiv="refresh" content="300">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#140A1F" id="themeColor">
 <title>SUDDY · Market Week</title>
+<script>
+  // Apply the saved theme before the page draws, so it never flashes the wrong colours
+  (function () { var t = localStorage.getItem('theme') || 'royal'; document.documentElement.dataset.theme = t; })();
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23140A1F'/%3E%3Cpath d='M6 22l2-11 5 5 3-7 3 7 5-5 2 11z' fill='%23D4AF37'/%3E%3C/svg%3E">
 <style>
-  :root {
+  /* ---- Themes. Royal is the default; the palette button switches data-theme on <html>. ----
+     --gold = fills and borders, --gold-ink = gold used as text, --edge = accent stripe on cards,
+     --on-gold = text sitting on a gold fill, --glow = the colour wash behind the header. */
+  :root, [data-theme="royal"] {
     --base: #140A1F; --panel: #1E1030; --panel-2: #26143D; --purple: #4B1E78; --line: #3A2358;
-    --gold: #D4AF37; --gold-soft: rgba(212,175,55,.14); --red: #B3122E; --orange: #E08A2E;
+    --gold: #D4AF37; --gold-ink: #D4AF37; --gold-soft: rgba(212,175,55,.14); --gold-glow: rgba(212,175,55,.12);
+    --red: #B3122E; --red-soft: rgba(179,18,46,.2); --red-text: #ffd7dd; --on-red: #fff;
+    --orange: #E08A2E; --warn-text: #f4d9b8;
     --text: #F5F0E6; --muted: #B7A9C9; --dim: #8A7BA0;
+    --on-gold: #140A1F; --edge: #D4AF37; --glow: rgba(75,30,120,.55);
   }
+  /* Midnight: near-black, softer text and dimmer gold so it's easy on the eyes at 1am */
+  [data-theme="midnight"] {
+    --base: #06030A; --panel: #0E0816; --panel-2: #140B1F; --purple: #351457; --line: #221535;
+    --gold: #A88A2C; --gold-ink: #BE9D3E; --gold-soft: rgba(168,138,44,.10); --gold-glow: rgba(168,138,44,.07);
+    --red: #8A0E24; --red-soft: rgba(138,14,36,.22); --red-text: #e3b3bc; --on-red: #f1e7e9;
+    --orange: #A9661F; --warn-text: #cdb596;
+    --text: #CFC7BA; --muted: #8F82A0; --dim: #625675;
+    --on-gold: #06030A; --edge: #A88A2C; --glow: rgba(53,20,87,.35);
+  }
+  /* Daylight: warm cream paper, royal purple ink, deeper gold so it reads on light */
+  [data-theme="daylight"] {
+    --base: #F6F1E7; --panel: #FFFFFF; --panel-2: #F2EBF8; --purple: #4B1E78; --line: #E3D8EC;
+    --gold: #C9A227; --gold-ink: #876810; --gold-soft: rgba(201,162,39,.14); --gold-glow: rgba(201,162,39,.20);
+    --red: #B3122E; --red-soft: rgba(179,18,46,.09); --red-text: #8E0F25; --on-red: #fff;
+    --orange: #B4641C; --warn-text: #75460F;
+    --text: #1E1030; --muted: #574770; --dim: #8A7BA0;
+    --on-gold: #1E1030; --edge: #4B1E78; --glow: rgba(75,30,120,.12);
+  }
+  /* Crimson: deep wine background, crimson glow and stripes, gold still the highlight */
+  [data-theme="crimson"] {
+    --base: #15050B; --panel: #240A15; --panel-2: #31101E; --purple: #5A1846; --line: #4A1A2B;
+    --gold: #D4AF37; --gold-ink: #E2C152; --gold-soft: rgba(212,175,55,.13); --gold-glow: rgba(212,175,55,.13);
+    --red: #D0163E; --red-soft: rgba(208,22,62,.22); --red-text: #ffd0d9; --on-red: #fff;
+    --orange: #E08A2E; --warn-text: #f4d9b8;
+    --text: #F8EEE6; --muted: #CFA9B5; --dim: #9C7382;
+    --on-gold: #15050B; --edge: #D0163E; --glow: rgba(179,18,46,.48);
+  }
+  /* Royal Crimson: purple base like Royal, but red takes the accent role */
+  [data-theme="regal"] {
+    --base: #120919; --panel: #1D0F2B; --panel-2: #2A1238; --purple: #4B1E78; --line: #3A2050;
+    --gold: #D4AF37; --gold-ink: #D9B648; --gold-soft: rgba(212,175,55,.13); --gold-glow: rgba(179,18,46,.18);
+    --red: #C4173B; --red-soft: rgba(196,23,59,.2); --red-text: #ffd5dd; --on-red: #fff;
+    --orange: #E08A2E; --warn-text: #f4d9b8;
+    --text: #F5F0E6; --muted: #BCA7C8; --dim: #8C779E;
+    --on-gold: #120919; --edge: #C4173B; --glow: rgba(140,20,70,.50);
+  }
+
+  /* Theme picker */
+  .theme-btn { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); cursor: pointer; display: grid; place-items: center; padding: 0; }
+  .theme-btn:hover { border-color: var(--gold); }
+  .theme-btn svg { width: 18px; height: 18px; }
+  .theme-wrap { position: relative; }
+  .theme-pop { position: absolute; right: 0; top: 40px; z-index: 20; width: 300px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px; box-shadow: 0 14px 40px rgba(0,0,0,.35); }
+  .theme-pop h3 { margin: 0 0 10px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-ink); font-weight: 600; }
+  .themes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .th { border: 1px solid var(--line); border-radius: 9px; padding: 0; background: none; cursor: pointer; overflow: hidden; text-align: left; color: var(--text); font: inherit; }
+  .th:hover { border-color: var(--gold); }
+  .th.on { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+  .th-prev { height: 46px; display: flex; align-items: flex-end; gap: 4px; padding: 6px; }
+  .th-prev i { display: block; width: 14px; height: 14px; border-radius: 3px; }
+  .th-name { font-size: 12px; font-weight: 700; padding: 6px 8px 1px; }
+  .th-desc { font-size: 10.5px; color: var(--muted); padding: 0 8px 7px; }
   * { box-sizing: border-box; }
   html, body { margin: 0; background: var(--base); color: var(--text); font-family: Bahnschrift, "Segoe UI", system-ui, sans-serif; }
   body { padding: 20px 24px 40px; min-height: 100vh;
-    background: radial-gradient(1200px 500px at 10% -10%, rgba(75,30,120,.55), transparent 60%), var(--base); }
+    background: radial-gradient(1200px 500px at 10% -10%, var(--glow), transparent 60%), var(--base); }
   a { color: inherit; }
   header { display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
   .brand { display: flex; align-items: center; gap: 12px; }
   .brand svg { width: 34px; height: 34px; }
-  .wordmark { font-family: "Bodoni MT Black", "Bodoni MT", Didot, serif; font-size: 30px; letter-spacing: 2px; color: var(--gold); line-height: 1; }
+  .wordmark { font-family: "Bodoni MT Black", "Bodoni MT", Didot, serif; font-size: 30px; letter-spacing: 2px; color: var(--gold-ink); line-height: 1; }
   .sub { font-size: 13px; color: var(--muted); letter-spacing: .5px; margin-top: 4px; }
-  .fed { display: grid; grid-template-columns: auto auto; gap: 4px 18px; padding: 9px 14px; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 10px; }
+  .fed { display: grid; grid-template-columns: auto auto; gap: 4px 18px; padding: 9px 14px; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--edge); border-radius: 10px; }
   .fed-label { font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--dim); }
-  .fed-rate { font-size: 20px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; line-height: 1.2; }
+  .fed-rate { font-size: 20px; font-weight: 700; color: var(--gold-ink); font-variant-numeric: tabular-nums; line-height: 1.2; }
   .fed-when { font-size: 14px; font-weight: 700; line-height: 1.5; }
   .fed-sub { font-size: 11px; color: var(--muted); }
   .fed-sub b { color: var(--text); }
   .fed-next { border-left: 1px solid var(--line); padding-left: 18px; }
   .fed-outlook { grid-column: 1 / -1; font-size: 11px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 5px; margin-top: 2px; max-width: 420px; }
-  .dp { font-size: 9.5px; padding: 1px 5px; border-radius: 4px; background: var(--gold); color: var(--base); font-weight: 700; letter-spacing: .5px; margin-left: 4px; vertical-align: 2px; }
+  .dp { font-size: 9.5px; padding: 1px 5px; border-radius: 4px; background: var(--gold); color: var(--on-gold); font-weight: 700; letter-spacing: .5px; margin-left: 4px; vertical-align: 2px; }
   .head-right { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
   .chip { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
   .chip b { color: var(--text); font-weight: 600; }
-  .chip.gold { border-color: var(--gold); color: var(--gold); background: var(--gold-soft); }
-  .chip.alert { border-color: var(--red); color: #ffd7dd; background: rgba(179,18,46,.18); }
+  .chip.gold { border-color: var(--gold); color: var(--gold-ink); background: var(--gold-soft); }
+  .chip.alert { border-color: var(--red); color: var(--red-text); background: var(--red-soft); }
   label.toggle { font-size: 12px; color: var(--muted); display: flex; gap: 6px; align-items: center; cursor: pointer; user-select: none; }
   label.toggle input { accent-color: var(--gold); }
 
   .flags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
-  .flag { font-size: 13px; padding: 8px 12px; border-radius: 8px; background: var(--panel); border-left: 3px solid var(--gold); }
-  .flag.warn { border-left-color: var(--orange); color: #f4d9b8; }
+  .flag { font-size: 13px; padding: 8px 12px; border-radius: 8px; background: var(--panel); border-left: 3px solid var(--edge); }
+  .flag.warn { border-left-color: var(--orange); color: var(--warn-text); }
   .flag.hol { border-left-color: var(--muted); }
 
   .layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 16px; align-items: start; }
   .week { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
   .day { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; min-height: 420px; }
-  .day.today { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold), 0 8px 30px rgba(212,175,55,.12); }
+  .day.today { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold), 0 8px 30px var(--gold-glow); }
   .day.past { opacity: .55; }
   .day-head { padding: 12px 12px 10px; background: var(--panel-2); border-bottom: 1px solid var(--line); }
   .day-name { font-size: 15px; font-weight: 700; letter-spacing: .5px; display: flex; align-items: center; gap: 8px; }
-  .today-pill { font-size: 10px; background: var(--gold); color: var(--base); padding: 2px 7px; border-radius: 999px; letter-spacing: 1px; }
+  .today-pill { font-size: 10px; background: var(--gold); color: var(--on-gold); padding: 2px 7px; border-radius: 999px; letter-spacing: 1px; }
   .day-date { font-size: 12px; color: var(--muted); margin-top: 2px; }
   .badges { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 8px; }
   .badge { font-size: 10.5px; padding: 3px 7px; border-radius: 5px; letter-spacing: .4px; text-transform: uppercase; font-weight: 600; }
-  .badge.quad { background: var(--gold); color: var(--base); }
-  .badge.monthly { background: var(--gold-soft); color: var(--gold); border: 1px solid var(--gold); }
+  .badge.quad { background: var(--gold); color: var(--on-gold); }
+  .badge.monthly { background: var(--gold-soft); color: var(--gold-ink); border: 1px solid var(--gold); }
   .badge.roll { background: var(--purple); color: var(--text); border: 1px solid var(--gold); }
-  .badge.closed { background: var(--red); color: #fff; }
-  .badge.early { background: rgba(179,18,46,.25); color: #ffd7dd; border: 1px solid var(--red); }
+  .badge.closed { background: var(--red); color: var(--on-red); }
+  .badge.early { background: var(--red-soft); color: var(--red-text); border: 1px solid var(--red); }
   .badge.bank { background: transparent; color: var(--muted); border: 1px solid var(--line); text-transform: none; font-weight: 500; }
 
   .section { padding: 10px 12px; }
   .section + .section { border-top: 1px dashed var(--line); }
   .sec-title { font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); margin-bottom: 8px; }
   .ev { display: grid; grid-template-columns: 8px 1fr; gap: 8px; padding: 6px 0; }
-  .ev + .ev { border-top: 1px solid rgba(58,35,88,.6); }
+  .ev + .ev { border-top: 1px solid var(--line); }
   .dot { width: 8px; height: 8px; border-radius: 2px; margin-top: 5px; background: var(--red); }
   .ev.med .dot { background: var(--orange); }
   .ev.med { color: var(--muted); }
   .ev-time { font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
   .ev-time small { font-weight: 400; color: var(--dim); margin-left: 4px; font-size: 11px; }
   .ev-title { font-size: 13px; margin-top: 1px; line-height: 1.3; }
-  .ev-title .cc { font-size: 10.5px; color: var(--gold); font-weight: 700; margin-right: 4px; }
+  .ev-title .cc { font-size: 10.5px; color: var(--gold-ink); font-weight: 700; margin-right: 4px; }
   .ev-meta { font-size: 11px; color: var(--dim); margin-top: 2px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
   .sess { font-size: 10px; padding: 1px 6px; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); }
-  .sess.asia, .sess.nyopen { border-color: var(--gold); color: var(--gold); }
+  .sess.asia, .sess.nyopen { border-color: var(--gold); color: var(--gold-ink); }
   .empty { font-size: 12px; color: var(--dim); font-style: italic; }
   .hide-med .ev.med { display: none; }
   .nw.notable { opacity: .72; }
@@ -89,8 +152,8 @@
   .earn-group { font-size: 11px; color: var(--dim); margin: 6px 0 4px; }
   .tickers { display: flex; gap: 5px; flex-wrap: wrap; }
   .tk { font-size: 12px; padding: 3px 7px; border-radius: 5px; background: var(--base); border: 1px solid var(--line); font-weight: 600; letter-spacing: .3px; }
-  .tk.MAG7 { background: var(--gold); color: var(--base); border-color: var(--gold); }
-  .tk.NQ { border-color: var(--gold); color: var(--gold); }
+  .tk.MAG7 { background: var(--gold); color: var(--on-gold); border-color: var(--gold); }
+  .tk.NQ { border-color: var(--gold); color: var(--gold-ink); }
   .tk small { font-weight: 400; opacity: .75; margin-left: 3px; }
 
   .main-col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
@@ -98,9 +161,9 @@
   details > summary::-webkit-details-marker { display: none; }
   .future { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
   .future > summary { padding: 14px 16px; display: flex; align-items: baseline; gap: 12px; }
-  .future > summary::before, .wk > summary::before { content: '▸'; color: var(--gold); transition: transform .15s; display: inline-block; }
+  .future > summary::before, .wk > summary::before { content: '▸'; color: var(--gold-ink); transition: transform .15s; display: inline-block; }
   .future[open] > summary::before, .wk[open] > summary::before { transform: rotate(90deg); }
-  .fut-title { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .fut-title { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-ink); font-weight: 600; }
   .fut-sub { font-size: 11px; color: var(--dim); }
   #future { padding: 0 12px 12px; display: flex; flex-direction: column; gap: 8px; }
   .wk { background: var(--base); border: 1px solid var(--line); border-radius: 10px; }
@@ -108,34 +171,34 @@
   .wk-name { font-weight: 700; font-size: 14px; min-width: 150px; }
   .wk-hl { display: flex; gap: 6px; flex-wrap: wrap; font-size: 11.5px; flex: 1; min-width: 0; }
   .hl { padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; flex: none; }
-  .hl.hlev { border-color: var(--red); color: #ffd7dd; }
-  .hl.gold { border-color: var(--gold); color: var(--gold); }
-  .hl.solid { background: var(--gold); color: var(--base); border-color: var(--gold); font-weight: 600; }
+  .hl.hlev { border-color: var(--red); color: var(--red-text); }
+  .hl.gold { border-color: var(--gold); color: var(--gold-ink); }
+  .hl.solid { background: var(--gold); color: var(--on-gold); border-color: var(--gold); font-weight: 600; }
   .wk-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; padding: 0 10px 10px; }
   .fday { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px; min-height: 90px; }
   .fday-name { font-size: 12.5px; font-weight: 700; }
   .fday-name small { font-weight: 400; color: var(--dim); margin-left: 4px; }
   .fday .ev { padding: 5px 0; }
-  .verify { font-size: 10px; color: var(--orange); border: 1px solid rgba(224,138,46,.5); border-radius: 4px; padding: 0 5px; }
+  .verify { font-size: 10px; color: var(--orange); border: 1px solid var(--orange); border-radius: 4px; padding: 0 5px; }
   .fday .tickers { margin-top: 6px; }
   @media (max-width: 900px) { .wk-grid { grid-template-columns: 1fr; } }
   aside { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 16px; }
   .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
-  .card h2 { margin: 0 0 10px; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; display: flex; justify-content: space-between; align-items: baseline; }
+  .card h2 { margin: 0 0 10px; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-ink); font-weight: 600; display: flex; justify-content: space-between; align-items: baseline; }
   .card h2 span { color: var(--dim); font-size: 11px; letter-spacing: .5px; text-transform: none; font-weight: 400; }
   .news { display: flex; flex-direction: column; max-height: calc(100vh - 330px); overflow-y: auto; margin-right: -6px; padding-right: 6px; }
   .nw { display: grid; grid-template-columns: 34px 1fr; gap: 10px; padding: 9px 0; text-decoration: none; }
   .nw + .nw { border-top: 1px solid var(--line); }
-  .nw:hover .nw-text { color: var(--gold); }
-  .score { font-size: 12px; font-weight: 700; text-align: center; padding: 4px 0; border-radius: 6px; background: var(--gold-soft); color: var(--gold); height: fit-content; }
-  .score.s9, .score.s10 { background: var(--gold); color: var(--base); }
+  .nw:hover .nw-text { color: var(--gold-ink); }
+  .score { font-size: 12px; font-weight: 700; text-align: center; padding: 4px 0; border-radius: 6px; background: var(--gold-soft); color: var(--gold-ink); height: fit-content; }
+  .score.s9, .score.s10 { background: var(--gold); color: var(--on-gold); }
   .nw-text { font-size: 13px; line-height: 1.35; }
   .nw-time { font-size: 11px; color: var(--dim); margin-top: 3px; }
-  .tag-go { font-size: 10px; font-weight: 700; color: var(--base); background: var(--muted); padding: 1px 5px; border-radius: 3px; margin-right: 4px; }
+  .tag-go { font-size: 10px; font-weight: 700; color: var(--on-gold); background: var(--muted); padding: 1px 5px; border-radius: 3px; margin-right: 4px; }
   .ahead { font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px; }
   .links { font-size: 12px; display: flex; flex-direction: column; gap: 6px; }
   .links a { color: var(--muted); text-decoration: none; }
-  .links a:hover { color: var(--gold); }
+  .links a:hover { color: var(--gold-ink); }
   footer { margin-top: 18px; font-size: 11px; color: var(--dim); }
   @media (max-width: 1350px) { .layout { grid-template-columns: minmax(0, 1fr); } aside { position: static; } .news { max-height: 420px; } }
   @media (max-width: 700px) {
@@ -145,6 +208,7 @@
     .chip, .flag { white-space: normal; }
     .wordmark { font-size: 26px; }
     .day.past { display: none; }          /* on a phone, start from today */
+    .theme-pop { position: fixed; left: 10px; right: 10px; top: 80px; width: auto; }
     .news { max-height: 60vh; }
     .wk > summary { gap: 8px; }
     .wk-name { min-width: 0; width: 100%; }
@@ -180,6 +244,15 @@
     <label class="toggle"><input type="checkbox" id="tMed" checked> USD orange folder</label>
     <label class="toggle"><input type="checkbox" id="tUsd"> USD only</label>
     <label class="toggle" title="Stories scoring 7/10: shown here, never pushed to your phone"><input type="checkbox" id="tNotable" checked> Notable news (7/10)</label>
+    <div class="theme-wrap">
+      <button class="theme-btn" id="themeBtn" title="Colour theme" aria-label="Colour theme" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 0 0 0 18c1.1 0 1.6-.8 1.6-1.6 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.7-1.6 1.6-1.6H16a5 5 0 0 0 5-5c0-4-4-7.4-9-7.4z" stroke="var(--gold-ink)" stroke-width="1.6"/><circle cx="7.5" cy="11.5" r="1.4" fill="var(--red)"/><circle cx="10.5" cy="7.5" r="1.4" fill="var(--gold)"/><circle cx="15" cy="7.8" r="1.4" fill="var(--purple)" stroke="var(--muted)" stroke-width=".6"/></svg>
+      </button>
+      <div class="theme-pop" id="themePop" hidden>
+        <h3>Theme</h3>
+        <div class="themes" id="themes"></div>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -431,102 +504,102 @@ const WEEK = {
 }
 ;
 const NEWS = [
-  {
-    "t": "2026-11-27T06:10:54.0000000+00:00",
-    "score": 8,
-    "text": "Huang's 'shocking return' to Nvidia; fallout to tighten China's advanced-chip access",
-    "link": "https://www.bloomberg.com/news/videos/2026-11-27/bloomberg-tech-asia-11-27-2026-video"
-  },
-  {
-    "t": "2026-11-27T06:08:09.0000000+00:00",
-    "score": 7,
-    "text": "OIL: Oil on track for weekly gain as tanker and energy-infrastructure attacks escalate",
-    "link": "https://www.bloomberg.com/news/videos/2026-11-27/oil-on-track-for-weekly-gain-as-hostilities-escalate-video"
-  },
-  {
-    "t": "2026-11-27T03:30:23.0000000+00:00",
-    "score": 8,
-    "text": "Iran war: Kuwait drone attack kills two Italians; Trump says war ends when he wants",
-    "link": "https://www.cnbc.com/2026/11/27/us-iran-war-trump-hormuz-italian-killed-trump.html"
-  },
-  {
-    "t": "2026-11-26T23:05:38.0000000+00:00",
-    "score": 7,
-    "text": "OIL: Oil on track for weekly gain on Mideast attacks on energy infrastructure and tankers",
-    "link": "https://www.bloomberg.com/news/articles/2026-11-26/latest-oil-market-news-and-analysis-for-nov-27"
-  },
-  {
-    "t": "2026-11-26T17:04:54.0000000+00:00",
-    "score": 8,
-    "text": "Nvidia chip buyers told to rule out Chinese renters for GPUs under new BIS rule",
-    "link": "https://www.cnbc.com/2026/11/26/neoclouds-nvidia-china-ai.html"
-  },
-  {
-    "t": "2026-11-26T14:58:45.0000000+00:00",
-    "score": 8,
-    "text": "FT: Fed poised to raise rates despite tech-led stock sell-off",
-    "link": "https://www.ft.com/content/3890f725-66dd-4613-8a60-d9e3ea38d25a?syn-25a6b1a6=1"
-  },
-  {
-    "t": "2026-11-26T12:46:55.0000000+00:00",
-    "score": 9,
-    "text": "US plans fresh tariff salvo on 14 trading partners, with lower rates for deal signers",
-    "link": "https://www.cnbc.com/2026/11/26/us-tariffs-hike-trade-agreement.html"
-  },
-  {
-    "t": "2026-11-26T12:23:12.0000000+00:00",
-    "score": 8,
-    "text": "Dutch government says it will resist proposed US curbs on ASML sales to China",
-    "link": "https://www.bloomberg.com/news/articles/2026-11-26/netherlands-plans-to-fight-rollout-of-proposed-us-curbs-on-asml"
-  },
-  {
-    "t": "2026-11-26T03:19:44.0000000+00:00",
-    "score": 7,
-    "text": "S&P warns Nvidia credit rating could be cut a notch over management and governance risk",
-    "link": "https://www.cnbc.com/2026/11/26/nvidia-market-governance-risk.html"
-  },
-  {
-    "t": "2026-11-25T14:27:46.0000000+00:00",
-    "score": 7,
-    "text": "OIL: OPEC+ top members clash over output estimates before Sunday meeting",
-    "link": "https://www.ft.com/content/b24d5c8c-4c9b-48f0-b4a8-5f83eee2d3e9?syn-25a6b1a6=1"
-  },
-  {
-    "t": "2026-11-25T14:18:45.0000000+00:00",
-    "score": 7,
-    "text": "PCE inflation accelerated to 3.8% in October, as expected; raises 2027 Fed hike stakes",
-    "link": "https://www.cnbc.com/2026/11/25/pce-inflation-report-october-2026.html"
-  },
-  {
-    "t": "2026-11-25T13:20:34.0000000+00:00",
-    "score": 10,
-    "text": "Trump pressure led Nvidia to reinstate CEO Jensen Huang; bipartisan scrutiny grows",
-    "link": "https://www.cnbc.com/2026/11/25/huang-reinstatement-reignites-voter-angst-over-techs-outsized-power.html"
-  },
-  {
-    "t": "2026-11-25T02:36:43.0000000+00:00",
-    "score": 7,
-    "text": "Houthi drone attack on Saudi PIF tower injures 11, second hit in six days",
-    "link": "https://www.cnbc.com/2026/11/25/us-iran-war-trump-hormuz-houthi-saudi-pif-tower.html"
-  },
-  {
-    "t": "2026-11-24T05:05:08.0000000+00:00",
-    "score": 9,
-    "text": "OIL: 3 tankers hit mines in Hormuz despite US escort; Treasury widens Iran sanctions",
-    "link": "https://www.cnbc.com/2026/11/24/iran-trump-hormuz-crude-.html"
-  },
-  {
-    "t": "2026-11-23T03:52:17.0000000+00:00",
-    "score": 8,
-    "text": "OIL: Houthis claim attack on Saudi Rabigh refinery; Trump warns of new strikes",
-    "link": "https://www.cnbc.com/2026/11/23/trump-iran-war-hormuz-saudi-.html"
-  },
-  {
-    "t": "2026-11-20T23:36:00.0000000+00:00",
-    "score": 8,
-    "text": "Anthropic IPO slump; brutal selloff wipes out $4T of AI value on Wall Street",
-    "link": "https://www.wsj.com/finance/stocks/anthropics-ipo-bust-punctuates-4-trillion-ai-wipeout-on-wall-street-f1f1ec90?mod=rss_markets_main"
-  }
+    {
+        "t":  "2026-11-27T06:10:54.0000000+00:00",
+        "score":  8,
+        "text":  "Huang\u0027s \u0027shocking return\u0027 to Nvidia; fallout to tighten China\u0027s advanced-chip access",
+        "link":  "https://www.bloomberg.com/news/videos/2026-11-27/bloomberg-tech-asia-11-27-2026-video"
+    },
+    {
+        "t":  "2026-11-27T06:08:09.0000000+00:00",
+        "score":  7,
+        "text":  "OIL: Oil on track for weekly gain as tanker and energy-infrastructure attacks escalate",
+        "link":  "https://www.bloomberg.com/news/videos/2026-11-27/oil-on-track-for-weekly-gain-as-hostilities-escalate-video"
+    },
+    {
+        "t":  "2026-11-27T03:30:23.0000000+00:00",
+        "score":  8,
+        "text":  "Iran war: Kuwait drone attack kills two Italians; Trump says war ends when he wants",
+        "link":  "https://www.cnbc.com/2026/11/27/us-iran-war-trump-hormuz-italian-killed-trump.html"
+    },
+    {
+        "t":  "2026-11-26T23:05:38.0000000+00:00",
+        "score":  7,
+        "text":  "OIL: Oil on track for weekly gain on Mideast attacks on energy infrastructure and tankers",
+        "link":  "https://www.bloomberg.com/news/articles/2026-11-26/latest-oil-market-news-and-analysis-for-nov-27"
+    },
+    {
+        "t":  "2026-11-26T17:04:54.0000000+00:00",
+        "score":  8,
+        "text":  "Nvidia chip buyers told to rule out Chinese renters for GPUs under new BIS rule",
+        "link":  "https://www.cnbc.com/2026/11/26/neoclouds-nvidia-china-ai.html"
+    },
+    {
+        "t":  "2026-11-26T14:58:45.0000000+00:00",
+        "score":  8,
+        "text":  "FT: Fed poised to raise rates despite tech-led stock sell-off",
+        "link":  "https://www.ft.com/content/3890f725-66dd-4613-8a60-d9e3ea38d25a?syn-25a6b1a6=1"
+    },
+    {
+        "t":  "2026-11-26T12:46:55.0000000+00:00",
+        "score":  9,
+        "text":  "US plans fresh tariff salvo on 14 trading partners, with lower rates for deal signers",
+        "link":  "https://www.cnbc.com/2026/11/26/us-tariffs-hike-trade-agreement.html"
+    },
+    {
+        "t":  "2026-11-26T12:23:12.0000000+00:00",
+        "score":  8,
+        "text":  "Dutch government says it will resist proposed US curbs on ASML sales to China",
+        "link":  "https://www.bloomberg.com/news/articles/2026-11-26/netherlands-plans-to-fight-rollout-of-proposed-us-curbs-on-asml"
+    },
+    {
+        "t":  "2026-11-26T03:19:44.0000000+00:00",
+        "score":  7,
+        "text":  "S\u0026P warns Nvidia credit rating could be cut a notch over management and governance risk",
+        "link":  "https://www.cnbc.com/2026/11/26/nvidia-market-governance-risk.html"
+    },
+    {
+        "t":  "2026-11-25T14:27:46.0000000+00:00",
+        "score":  7,
+        "text":  "OIL: OPEC+ top members clash over output estimates before Sunday meeting",
+        "link":  "https://www.ft.com/content/b24d5c8c-4c9b-48f0-b4a8-5f83eee2d3e9?syn-25a6b1a6=1"
+    },
+    {
+        "t":  "2026-11-25T14:18:45.0000000+00:00",
+        "score":  7,
+        "text":  "PCE inflation accelerated to 3.8% in October, as expected; raises 2027 Fed hike stakes",
+        "link":  "https://www.cnbc.com/2026/11/25/pce-inflation-report-october-2026.html"
+    },
+    {
+        "t":  "2026-11-25T13:20:34.0000000+00:00",
+        "score":  10,
+        "text":  "Trump pressure led Nvidia to reinstate CEO Jensen Huang; bipartisan scrutiny grows",
+        "link":  "https://www.cnbc.com/2026/11/25/huang-reinstatement-reignites-voter-angst-over-techs-outsized-power.html"
+    },
+    {
+        "t":  "2026-11-25T02:36:43.0000000+00:00",
+        "score":  7,
+        "text":  "Houthi drone attack on Saudi PIF tower injures 11, second hit in six days",
+        "link":  "https://www.cnbc.com/2026/11/25/us-iran-war-trump-hormuz-houthi-saudi-pif-tower.html"
+    },
+    {
+        "t":  "2026-11-24T05:05:08.0000000+00:00",
+        "score":  9,
+        "text":  "OIL: 3 tankers hit mines in Hormuz despite US escort; Treasury widens Iran sanctions",
+        "link":  "https://www.cnbc.com/2026/11/24/iran-trump-hormuz-crude-.html"
+    },
+    {
+        "t":  "2026-11-23T03:52:17.0000000+00:00",
+        "score":  8,
+        "text":  "OIL: Houthis claim attack on Saudi Rabigh refinery; Trump warns of new strikes",
+        "link":  "https://www.cnbc.com/2026/11/23/trump-iran-war-hormuz-saudi-.html"
+    },
+    {
+        "t":  "2026-11-20T23:36:00.0000000+00:00",
+        "score":  8,
+        "text":  "Anthropic IPO slump; brutal selloff wipes out $4T of AI value on Wall Street",
+        "link":  "https://www.wsj.com/finance/stocks/anthropics-ipo-bust-punctuates-4-trillion-ai-wipeout-on-wall-street-f1f1ec90?mod=rss_markets_main"
+    }
 ];
 const AHEAD = {
   "fed": {
@@ -843,7 +916,7 @@ const AHEAD = {
   "warnings": []
 }
 ;
-const BUILT = "2026-11-27T07:37:11.0886800+00:00";
+const BUILT = "2026-11-27T08:25:29.2763000+00:00";
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1018,6 +1091,29 @@ function renderFuture() {
     localStorage.setItem('openWeeks', JSON.stringify([...document.querySelectorAll('.wk[open]')].map(x => x.dataset.wk)));
   }));
 }
+// ---- Theme picker. Swatches: base, panel, gold, red, purple (what the preview shows).
+const THEMES = [
+  { id: 'royal',    name: 'Royal',          desc: 'Purple & gold (default)', sw: ['#140A1F', '#1E1030', '#D4AF37', '#B3122E', '#4B1E78'] },
+  { id: 'midnight', name: 'Midnight',       desc: 'Extra dark, for night',   sw: ['#06030A', '#0E0816', '#A88A2C', '#8A0E24', '#351457'] },
+  { id: 'daylight', name: 'Daylight',       desc: 'Light cream, for day',    sw: ['#F6F1E7', '#FFFFFF', '#C9A227', '#B3122E', '#4B1E78'] },
+  { id: 'crimson',  name: 'Crimson',        desc: 'Deep wine, red-led',      sw: ['#15050B', '#240A15', '#D4AF37', '#D0163E', '#5A1846'] },
+  { id: 'regal',    name: 'Royal Crimson',  desc: 'Purple with red accents', sw: ['#120919', '#1D0F2B', '#D4AF37', '#C4173B', '#4B1E78'] }
+];
+function setTheme(id) {
+  document.documentElement.dataset.theme = id; localStorage.setItem('theme', id);
+  const t = THEMES.find(x => x.id === id) || THEMES[0]; $('themeColor').setAttribute('content', t.sw[0]);
+  document.querySelectorAll('.th').forEach(b => b.classList.toggle('on', b.dataset.id === id));
+}
+$('themes').innerHTML = THEMES.map(t => `<button class="th" data-id="${t.id}">
+  <div class="th-prev" style="background: radial-gradient(120px 60px at 20% 0%, ${t.sw[4]}88, transparent), ${t.sw[0]}">
+    <i style="background:${t.sw[1]};border:1px solid ${t.sw[4]}"></i><i style="background:${t.sw[2]}"></i><i style="background:${t.sw[3]}"></i><i style="background:${t.sw[4]}"></i>
+  </div>
+  <div class="th-name">${t.name}</div><div class="th-desc">${t.desc}</div></button>`).join('');
+document.querySelectorAll('.th').forEach(b => b.addEventListener('click', () => setTheme(b.dataset.id)));
+setTheme(localStorage.getItem('theme') || 'royal');
+$('themeBtn').addEventListener('click', e => { e.stopPropagation(); const p = $('themePop'); p.hidden = !p.hidden; $('themeBtn').setAttribute('aria-expanded', String(!p.hidden)); });
+document.addEventListener('click', e => { if (!e.target.closest('.theme-wrap')) $('themePop').hidden = true; });
+
 // Remember whether the whole section is collapsed
 const fb = $('futureBox'); if (localStorage.getItem('futureOpen') === '0') fb.open = false;
 fb.addEventListener('toggle', () => localStorage.setItem('futureOpen', fb.open ? '1' : '0'));
