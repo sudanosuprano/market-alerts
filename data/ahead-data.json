@@ -22,7 +22,7 @@
       "local": "Thu 28 Jan, 6:00AM"
     }
   },
-  "generated": "2026-11-27T18:04:18.9808737+00:00",
+  "generated": "2026-11-27T19:08:21.2286801+00:00",
   "eventsUpdated": "2026-11-27",
   "weeks": [
     "2026-11-30",
@@ -127,7 +127,7 @@
       "day": "2026-12-01",
       "symbol": "BHP",
       "name": "BHP Group Limited",
-      "capB": 175.0,
+      "capB": 179.0,
       "tag": "",
       "time": "TBC"
     },
@@ -143,7 +143,7 @@
       "day": "2026-12-02",
       "symbol": "CRM",
       "name": "Salesforce, Inc.",
-      "capB": 159.0,
+      "capB": 162.0,
       "tag": "NQ",
       "time": "AMC"
     },
@@ -151,7 +151,7 @@
       "day": "2026-12-02",
       "symbol": "BMO",
       "name": "Bank Of Montreal",
-      "capB": 112.0,
+      "capB": 111.0,
       "tag": "",
       "time": "BMO"
     },
@@ -167,7 +167,7 @@
       "day": "2026-12-02",
       "symbol": "SNOW",
       "name": "Snowflake Inc.",
-      "capB": 96.0,
+      "capB": 94.0,
       "tag": "",
       "time": "AMC"
     },
@@ -175,7 +175,7 @@
       "day": "2026-12-03",
       "symbol": "RY",
       "name": "Royal Bank Of Canada",
-      "capB": 262.0,
+      "capB": 261.0,
       "tag": "",
       "time": "BMO"
     },
@@ -183,7 +183,7 @@
       "day": "2026-12-03",
       "symbol": "TD",
       "name": "Toronto Dominion Bank (The)",
-      "capB": 189.0,
+      "capB": 190.0,
       "tag": "",
       "time": "BMO"
     },
@@ -191,7 +191,7 @@
       "day": "2026-12-03",
       "symbol": "CM",
       "name": "Canadian Imperial Bank of Commerce",
-      "capB": 96.0,
+      "capB": 95.0,
       "tag": "",
       "time": "BMO"
     },
@@ -199,7 +199,7 @@
       "day": "2026-12-08",
       "symbol": "SNPS",
       "name": "Synopsys, Inc.",
-      "capB": 79.0,
+      "capB": 78.0,
       "tag": "NQ",
       "time": "AMC"
     },
@@ -207,7 +207,7 @@
       "day": "2026-12-08",
       "symbol": "AZO",
       "name": "AutoZone, Inc.",
-      "capB": 54.0,
+      "capB": 55.0,
       "tag": "",
       "time": "BMO"
     },
@@ -215,7 +215,7 @@
       "day": "2026-12-09",
       "symbol": "AVGO",
       "name": "Broadcom Inc.",
-      "capB": 1437.0,
+      "capB": 1436.0,
       "tag": "NQ",
       "time": "AMC"
     },
@@ -223,7 +223,7 @@
       "day": "2026-12-09",
       "symbol": "ADBE",
       "name": "Adobe Inc.",
-      "capB": 90.0,
+      "capB": 91.0,
       "tag": "NQ",
       "time": "AMC"
     },
@@ -231,7 +231,7 @@
       "day": "2026-12-10",
       "symbol": "COST",
       "name": "Costco Wholesale Corporation",
-      "capB": 484.0,
+      "capB": 482.0,
       "tag": "NQ",
       "time": "AMC"
     },
@@ -239,7 +239,7 @@
       "day": "2026-12-14",
       "symbol": "ORCL",
       "name": "Oracle Corporation",
-      "capB": 331.0,
+      "capB": 314.0,
       "tag": "NQ",
       "time": "AMC"
     },
@@ -247,7 +247,7 @@
       "day": "2026-12-17",
       "symbol": "MU",
       "name": "Micron Technology, Inc.",
-      "capB": 713.0,
+      "capB": 681.0,
       "tag": "NQ",
       "time": "AMC"
     },
@@ -255,7 +255,7 @@
       "day": "2026-12-17",
       "symbol": "ACN",
       "name": "Accenture plc",
-      "capB": 155.0,
+      "capB": 161.0,
       "tag": "",
       "time": "BMO"
     },
@@ -271,7 +271,7 @@
       "day": "2026-12-17",
       "symbol": "NKE",
       "name": "Nike, Inc.",
-      "capB": 53.0,
+      "capB": 54.0,
       "tag": "",
       "time": "AMC"
     }
