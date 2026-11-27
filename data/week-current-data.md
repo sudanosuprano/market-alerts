@@ -1,17 +1,17 @@
-﻿# Market data pack: weekly
+# Market data pack: weekly
 Week of Mon 23 Nov 2026 (NY time)
-Generated Fri 27 Nov 6:00PM local (AUS Eastern Standard Time). Local times first, NY time in brackets.
+Generated Fri 27 Nov 6:06PM local (Australia/Sydney). Local times first, NY time in brackets.
 
 ## Red folder (high impact) events
-- Wed 25 Nov 11:30AM (Tue 7:30PM ET) **AUD** Trimmed Mean CPI m/m | fcst 0.3% | prev 0.3%
-- Wed 25 Nov 11:30AM (Tue 7:30PM ET) **AUD** CPI y/y | fcst 4.7% | prev 4.3%
 - Wed 25 Nov 11:30AM (Tue 7:30PM ET) **AUD** CPI m/m | fcst 0.4% | prev 0.8%
-- Thu 26 Nov 12:30AM (Wed 8:30AM ET) **USD** Prelim GDP q/q | fcst 3.5% | prev 3.4%
+- Wed 25 Nov 11:30AM (Tue 7:30PM ET) **AUD** CPI y/y | fcst 4.7% | prev 4.3%
+- Wed 25 Nov 11:30AM (Tue 7:30PM ET) **AUD** Trimmed Mean CPI m/m | fcst 0.3% | prev 0.3%
 - Thu 26 Nov 12:30AM (Wed 8:30AM ET) **USD** Core PCE Price Index m/m | fcst 0.3% | prev 0.3%
+- Thu 26 Nov 12:30AM (Wed 8:30AM ET) **USD** Prelim GDP q/q | fcst 3.5% | prev 3.4%
 
 USD orange folder (medium), for reference:
-- Tue 24 Nov 1:45AM (Mon 9:45AM ET) Flash Services PMI
 - Tue 24 Nov 1:45AM (Mon 9:45AM ET) Flash Manufacturing PMI
+- Tue 24 Nov 1:45AM (Mon 9:45AM ET) Flash Services PMI
 - Wed 25 Nov 2:00AM (Tue 10:00AM ET) CB Consumer Confidence
 - Thu 26 Nov 12:30AM (Wed 8:30AM ET) Prelim GDP Price Index q/q
 
