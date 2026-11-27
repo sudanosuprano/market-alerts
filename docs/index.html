@@ -22,6 +22,15 @@
   .brand svg { width: 34px; height: 34px; }
   .wordmark { font-family: "Bodoni MT Black", "Bodoni MT", Didot, serif; font-size: 30px; letter-spacing: 2px; color: var(--gold); line-height: 1; }
   .sub { font-size: 13px; color: var(--muted); letter-spacing: .5px; margin-top: 4px; }
+  .fed { display: grid; grid-template-columns: auto auto; gap: 4px 18px; padding: 9px 14px; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 10px; }
+  .fed-label { font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--dim); }
+  .fed-rate { font-size: 20px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; line-height: 1.2; }
+  .fed-when { font-size: 14px; font-weight: 700; line-height: 1.5; }
+  .fed-sub { font-size: 11px; color: var(--muted); }
+  .fed-sub b { color: var(--text); }
+  .fed-next { border-left: 1px solid var(--line); padding-left: 18px; }
+  .fed-outlook { grid-column: 1 / -1; font-size: 11px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 5px; margin-top: 2px; max-width: 420px; }
+  .dp { font-size: 9.5px; padding: 1px 5px; border-radius: 4px; background: var(--gold); color: var(--base); font-weight: 700; letter-spacing: .5px; margin-left: 4px; vertical-align: 2px; }
   .head-right { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
   .chip { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
   .chip b { color: var(--text); font-weight: 600; }
@@ -152,6 +161,19 @@
       <div class="sub" id="weekTitle">Market week</div>
     </div>
   </div>
+  <div class="fed" id="fed" hidden>
+    <div class="fed-col">
+      <div class="fed-label">Fed funds rate</div>
+      <div class="fed-rate" id="fedRate"></div>
+      <div class="fed-sub" id="fedLast"></div>
+    </div>
+    <div class="fed-col fed-next">
+      <div class="fed-label">Next decision</div>
+      <div class="fed-when" id="fedWhen"></div>
+      <div class="fed-sub" id="fedCount"></div>
+    </div>
+    <div class="fed-outlook" id="fedOutlook" hidden></div>
+  </div>
   <div class="head-right">
     <span class="chip" id="clock"></span>
     <span class="chip gold" id="opexChip"></span>
@@ -195,7 +217,7 @@
 
 <script>
 const WEEK = {
-  "generated": "2026-11-27T07:23:56.8419559+00:00",
+  "generated": "2026-11-27T07:36:59.7684896+00:00",
   "mode": "weekly",
   "title": "Week of Mon 23 Nov 2026 (NY time)",
   "days": [
@@ -507,7 +529,30 @@ const NEWS = [
   }
 ];
 const AHEAD = {
-  "generated": "2026-11-27T07:24:07.6334862+00:00",
+  "fed": {
+    "lower": 3.75,
+    "upper": 4.0,
+    "effr": 3.88,
+    "asOf": "2026-11-24",
+    "lastChange": {
+      "effective": "2026-09-17",
+      "bps": 25,
+      "from": "3.5-3.75"
+    },
+    "next": {
+      "day": "2026-12-09",
+      "sep": true,
+      "utc": "2026-12-09T19:00:00.0000000+00:00",
+      "local": "Thu 10 Dec, 6:00AM"
+    },
+    "after": {
+      "day": "2027-01-27",
+      "sep": false,
+      "utc": "2027-01-27T19:00:00.0000000+00:00",
+      "local": "Thu 28 Jan, 6:00AM"
+    }
+  },
+  "generated": "2026-11-27T07:37:11.0653857+00:00",
   "eventsUpdated": "2026-11-27",
   "weeks": [
     "2026-11-30",
@@ -798,7 +843,7 @@ const AHEAD = {
   "warnings": []
 }
 ;
-const BUILT = "2026-11-27T07:24:07.6657388+00:00";
+const BUILT = "2026-11-27T07:37:11.0886800+00:00";
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -909,10 +954,29 @@ function render() {
     : '<div class="empty">None on the calendar yet. Dates usually appear 3–5 weeks out.</div>';
 
   renderFuture();
+  renderFed();
   $('foot').textContent = `Calendar data refreshed ${ago(WEEK.generated)} · page built ${ago(BUILT)} · reloads every 5 min · Sources: ForexFactory, Nasdaq, Nager.Date, Bloomberg/CNBC/WSJ/FT/MarketWatch RSS. Not financial advice.`;
   if (!'reports/2026-11-30-weekly.md'.includes('reports/') && $('reportLink').getAttribute('href') === '') $('reportLink').style.display = 'none';
 }
 
+function renderFed() {
+  const f = AHEAD && AHEAD.fed; if (!f) return;
+  $('fed').hidden = false;
+  const pct = n => Number(n).toFixed(2);
+  $('fedRate').textContent = `${pct(f.lower)}–${pct(f.upper)}%`;
+  const lc = f.lastChange;
+  $('fedLast').innerHTML = lc
+    ? `Last move: <b>${lc.bps > 0 ? '+' : '−'}${Math.abs(lc.bps / 100).toFixed(2)}</b> ${lc.bps > 0 ? 'hike' : 'cut'}, ${new Date(lc.effective + 'T12:00:00').toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}`
+    : `Effective rate ${f.effr}%`;
+  if (f.next) {
+    $('fedWhen').innerHTML = `${esc(f.next.local.replace(/(\d+):00/, '$1').replace('AM', 'am').replace('PM', 'pm'))} <span style="font-weight:400;color:var(--dim);font-size:11px">Sydney</span>${f.next.sep ? '<span class="dp" title="New projections and dot plot">DOT PLOT</span>' : ''}`;
+    const ms = new Date(f.next.utc) - Date.now();
+    const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5);
+    $('fedCount').innerHTML = ms > 0 ? `in <b>${d}d ${h}h</b> · 2pm ET statement, 2:30 presser` : '<b>Decision out now</b>';
+  }
+  const o = f.outlook;
+  if (o && o.text) { $('fedOutlook').hidden = false; $('fedOutlook').textContent = `Market pricing: ${o.text} (${o.source || 'source'}, checked ${fmtDate(o.updated)})`; }
+}
 const tagRank = t => t === 'MAG7' ? 0 : t === 'NQ' ? 1 : 2;
 function renderFuture() {
   if (!AHEAD) { $('future').innerHTML = '<div class="empty">No look-ahead data yet. Run build-dashboard.ps1 -Refresh.</div>'; return; }

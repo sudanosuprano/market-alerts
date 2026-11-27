@@ -1,6 +1,6 @@
 # Market data pack: weekly
 Week of Mon 23 Nov 2026 (NY time)
-Generated Fri 27 Nov 6:23PM local (Australia/Sydney). Local times first, NY time in brackets.
+Generated Fri 27 Nov 6:36PM local (Australia/Sydney). Local times first, NY time in brackets.
 
 ## Red folder (high impact) events
 - Wed 25 Nov 11:30AM (Tue 7:30PM ET) **AUD** CPI m/m | fcst 0.4% | prev 0.8%
@@ -27,6 +27,7 @@ MAG7 = Magnificent 7. NQ = other Nasdaq-100 heavyweights. Others are any company
 ## Options expiry (OPEX)
 No monthly OPEX this window (0DTE/weekly options still expire daily).
 Next monthly OPEX: Fri 18 Dec 2026 (QUAD WITCHING)
+Next ES/NQ roll date: Thu 10 Dec 2026
 
 ## Holidays
 - US market: Thu 26 Nov CLOSED Thanksgiving
