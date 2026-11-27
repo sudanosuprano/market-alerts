@@ -1,0 +1,40 @@
+﻿{
+    "generated":  "2026-11-27T06:47:11.1256034+00:00",
+    "mode":  "daily",
+    "title":  "Trading day Fri 27 Nov (NY): Fri 27 Nov 10:00AM to Sat 28 Nov 9:00AM Sydney time",
+    "days":  [
+                 "2026-11-27"
+             ],
+    "events":  [
+
+               ],
+    "earnings":  [
+
+                 ],
+    "opex":  [
+
+             ],
+    "holidays":  [
+                     {
+                         "day":  "2026-11-27",
+                         "country":  "US market",
+                         "name":  "EARLY CLOSE 1pm ET (day after Thanksgiving)"
+                     },
+                     {
+                         "day":  "2026-11-26",
+                         "country":  "US bank holiday",
+                         "name":  "Thanksgiving Day (nationwide)"
+                     }
+                 ],
+    "mag7Ahead":  [
+
+                  ],
+    "nextOpex":  {
+                     "day":  "2026-12-18",
+                     "quad":  true
+                 },
+    "warnings":  [
+
+                 ],
+    "ffStale":  false
+}

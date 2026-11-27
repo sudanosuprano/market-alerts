@@ -1,0 +1,8 @@
+# Private: holds your ntfy channel name (on GitHub it's the NTFY_TOPIC secret)
+config.json
+# Working files
+data/claude-work/
+data/watch.lock
+dashboard.html
+*.backup.ps1
+.claude/

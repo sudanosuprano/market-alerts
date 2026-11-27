@@ -1,0 +1,35 @@
+﻿[
+    {
+        "lastYearRptDt":  "12/04/2025",
+        "lastYearEPS":  "$0.45",
+        "time":  "time-pre-market",
+        "symbol":  "KNOP",
+        "name":  "KNOT Offshore Partners LP",
+        "marketCap":  "$306,645,728",
+        "fiscalQuarterEnding":  "Sep/2026",
+        "epsForecast":  "$0.06",
+        "noOfEsts":  "1"
+    },
+    {
+        "lastYearRptDt":  "N/A",
+        "lastYearEPS":  "$0.01",
+        "time":  "time-not-supplied",
+        "symbol":  "TORO",
+        "name":  "Toro Corp.",
+        "marketCap":  "$113,009,008",
+        "fiscalQuarterEnding":  "Sep/2026",
+        "epsForecast":  "",
+        "noOfEsts":  "1"
+    },
+    {
+        "lastYearRptDt":  "N/A",
+        "lastYearEPS":  "$0.30",
+        "time":  "time-not-supplied",
+        "symbol":  "TOUR",
+        "name":  "Tuniu Corporation",
+        "marketCap":  "$39,978,624",
+        "fiscalQuarterEnding":  "Sep/2026",
+        "epsForecast":  "",
+        "noOfEsts":  "1"
+    }
+]

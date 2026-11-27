@@ -1,0 +1,101 @@
+﻿[
+    {
+        "lastYearRptDt":  "N/A",
+        "lastYearEPS":  "$0.60",
+        "time":  "time-not-supplied",
+        "symbol":  "VALU",
+        "name":  "Value Line, Inc.",
+        "marketCap":  "$358,396,160",
+        "fiscalQuarterEnding":  "Oct/2026",
+        "epsForecast":  "",
+        "noOfEsts":  "2"
+    },
+    {
+        "lastYearRptDt":  "N/A",
+        "lastYearEPS":  "$0.02",
+        "time":  "time-not-supplied",
+        "symbol":  "CSBR",
+        "name":  "Champions Oncology, Inc.",
+        "marketCap":  "$62,633,560",
+        "fiscalQuarterEnding":  "Oct/2026",
+        "epsForecast":  "",
+        "noOfEsts":  "2"
+    },
+    {
+        "lastYearRptDt":  "12/15/2025",
+        "lastYearEPS":  "($0.05)",
+        "time":  "time-not-supplied",
+        "symbol":  "HYFT",
+        "name":  "MindWalk Holdings Corp.",
+        "marketCap":  "$31,351,604",
+        "fiscalQuarterEnding":  "Oct/2026",
+        "epsForecast":  "($0.05)",
+        "noOfEsts":  "1"
+    },
+    {
+        "lastYearRptDt":  "N/A",
+        "lastYearEPS":  "($0.44)",
+        "time":  "time-not-supplied",
+        "symbol":  "NCPL",
+        "name":  "Netcapital Inc.",
+        "marketCap":  "$17,399,988",
+        "fiscalQuarterEnding":  "Oct/2026",
+        "epsForecast":  "",
+        "noOfEsts":  "2"
+    },
+    {
+        "lastYearRptDt":  "N/A",
+        "lastYearEPS":  "($0.59)",
+        "time":  "time-not-supplied",
+        "symbol":  "ARKR",
+        "name":  "Ark Restaurants Corp.",
+        "marketCap":  "$15,686,783",
+        "fiscalQuarterEnding":  "Sep/2026",
+        "epsForecast":  "",
+        "noOfEsts":  "2"
+    },
+    {
+        "lastYearRptDt":  "N/A",
+        "lastYearEPS":  "($0.04)",
+        "time":  "time-not-supplied",
+        "symbol":  "IHT",
+        "name":  "InnSuites Hospitality Trust",
+        "marketCap":  "$11,336,815",
+        "fiscalQuarterEnding":  "Oct/2026",
+        "epsForecast":  "",
+        "noOfEsts":  "2"
+    },
+    {
+        "lastYearRptDt":  "12/15/2025",
+        "lastYearEPS":  "($0.85)",
+        "time":  "time-not-supplied",
+        "symbol":  "HSCS",
+        "name":  "HeartSciences Inc.",
+        "marketCap":  "$10,316,705",
+        "fiscalQuarterEnding":  "Oct/2026",
+        "epsForecast":  "($0.74)",
+        "noOfEsts":  "2"
+    },
+    {
+        "lastYearRptDt":  "N/A",
+        "lastYearEPS":  "N/A",
+        "time":  "time-not-supplied",
+        "symbol":  "INHD",
+        "name":  "Inno Holdings Inc.",
+        "marketCap":  "$5,805,566",
+        "fiscalQuarterEnding":  "Sep/2026",
+        "epsForecast":  "",
+        "noOfEsts":  "2"
+    },
+    {
+        "lastYearRptDt":  "12/15/2025",
+        "lastYearEPS":  "($1.80)",
+        "time":  "time-not-supplied",
+        "symbol":  "OPTT",
+        "name":  "Ocean Power Technologies, Inc.",
+        "marketCap":  "$2,597,255",
+        "fiscalQuarterEnding":  "Oct/2026",
+        "epsForecast":  "$0.90",
+        "noOfEsts":  "1"
+    }
+]

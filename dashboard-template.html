@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="300">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SUDDY · Market Week</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23140A1F'/%3E%3Cpath d='M6 22l2-11 5 5 3-7 3 7 5-5 2 11z' fill='%23D4AF37'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --base: #140A1F; --panel: #1E1030; --panel-2: #26143D; --purple: #4B1E78; --line: #3A2358;
+    --gold: #D4AF37; --gold-soft: rgba(212,175,55,.14); --red: #B3122E; --orange: #E08A2E;
+    --text: #F5F0E6; --muted: #B7A9C9; --dim: #8A7BA0;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--base); color: var(--text); font-family: Bahnschrift, "Segoe UI", system-ui, sans-serif; }
+  body { padding: 20px 24px 40px; min-height: 100vh;
+    background: radial-gradient(1200px 500px at 10% -10%, rgba(75,30,120,.55), transparent 60%), var(--base); }
+  a { color: inherit; }
+  header { display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand svg { width: 34px; height: 34px; }
+  .wordmark { font-family: "Bodoni MT Black", "Bodoni MT", Didot, serif; font-size: 30px; letter-spacing: 2px; color: var(--gold); line-height: 1; }
+  .sub { font-size: 13px; color: var(--muted); letter-spacing: .5px; margin-top: 4px; }
+  .head-right { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .chip { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+  .chip b { color: var(--text); font-weight: 600; }
+  .chip.gold { border-color: var(--gold); color: var(--gold); background: var(--gold-soft); }
+  .chip.alert { border-color: var(--red); color: #ffd7dd; background: rgba(179,18,46,.18); }
+  label.toggle { font-size: 12px; color: var(--muted); display: flex; gap: 6px; align-items: center; cursor: pointer; user-select: none; }
+  label.toggle input { accent-color: var(--gold); }
+
+  .flags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .flag { font-size: 13px; padding: 8px 12px; border-radius: 8px; background: var(--panel); border-left: 3px solid var(--gold); }
+  .flag.warn { border-left-color: var(--orange); color: #f4d9b8; }
+  .flag.hol { border-left-color: var(--muted); }
+
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 16px; align-items: start; }
+  .week { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+  .day { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; min-height: 420px; }
+  .day.today { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold), 0 8px 30px rgba(212,175,55,.12); }
+  .day.past { opacity: .55; }
+  .day-head { padding: 12px 12px 10px; background: var(--panel-2); border-bottom: 1px solid var(--line); }
+  .day-name { font-size: 15px; font-weight: 700; letter-spacing: .5px; display: flex; align-items: center; gap: 8px; }
+  .today-pill { font-size: 10px; background: var(--gold); color: var(--base); padding: 2px 7px; border-radius: 999px; letter-spacing: 1px; }
+  .day-date { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .badges { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 8px; }
+  .badge { font-size: 10.5px; padding: 3px 7px; border-radius: 5px; letter-spacing: .4px; text-transform: uppercase; font-weight: 600; }
+  .badge.quad { background: var(--gold); color: var(--base); }
+  .badge.monthly { background: var(--gold-soft); color: var(--gold); border: 1px solid var(--gold); }
+  .badge.roll { background: var(--purple); color: var(--text); border: 1px solid var(--gold); }
+  .badge.closed { background: var(--red); color: #fff; }
+  .badge.early { background: rgba(179,18,46,.25); color: #ffd7dd; border: 1px solid var(--red); }
+  .badge.bank { background: transparent; color: var(--muted); border: 1px solid var(--line); text-transform: none; font-weight: 500; }
+
+  .section { padding: 10px 12px; }
+  .section + .section { border-top: 1px dashed var(--line); }
+  .sec-title { font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); margin-bottom: 8px; }
+  .ev { display: grid; grid-template-columns: 8px 1fr; gap: 8px; padding: 6px 0; }
+  .ev + .ev { border-top: 1px solid rgba(58,35,88,.6); }
+  .dot { width: 8px; height: 8px; border-radius: 2px; margin-top: 5px; background: var(--red); }
+  .ev.med .dot { background: var(--orange); }
+  .ev.med { color: var(--muted); }
+  .ev-time { font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .ev-time small { font-weight: 400; color: var(--dim); margin-left: 4px; font-size: 11px; }
+  .ev-title { font-size: 13px; margin-top: 1px; line-height: 1.3; }
+  .ev-title .cc { font-size: 10.5px; color: var(--gold); font-weight: 700; margin-right: 4px; }
+  .ev-meta { font-size: 11px; color: var(--dim); margin-top: 2px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .sess { font-size: 10px; padding: 1px 6px; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); }
+  .sess.asia, .sess.nyopen { border-color: var(--gold); color: var(--gold); }
+  .empty { font-size: 12px; color: var(--dim); font-style: italic; }
+  .hide-med .ev.med { display: none; }
+  .nw.notable { opacity: .72; }
+  .nw.notable .score { background: transparent; border: 1px solid var(--line); color: var(--muted); }
+  .hide-notable .nw.notable { display: none; }
+  .news-day { font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); padding: 10px 0 2px; border-top: 1px solid var(--line); }
+  .news-day:first-child { border-top: 0; padding-top: 0; }
+  .hide-nonusd .ev[data-cc]:not([data-cc="USD"]) { display: none; }
+
+  .earn-group { font-size: 11px; color: var(--dim); margin: 6px 0 4px; }
+  .tickers { display: flex; gap: 5px; flex-wrap: wrap; }
+  .tk { font-size: 12px; padding: 3px 7px; border-radius: 5px; background: var(--base); border: 1px solid var(--line); font-weight: 600; letter-spacing: .3px; }
+  .tk.MAG7 { background: var(--gold); color: var(--base); border-color: var(--gold); }
+  .tk.NQ { border-color: var(--gold); color: var(--gold); }
+  .tk small { font-weight: 400; opacity: .75; margin-left: 3px; }
+
+  .main-col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+  details > summary { list-style: none; cursor: pointer; user-select: none; }
+  details > summary::-webkit-details-marker { display: none; }
+  .future { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+  .future > summary { padding: 14px 16px; display: flex; align-items: baseline; gap: 12px; }
+  .future > summary::before, .wk > summary::before { content: '▸'; color: var(--gold); transition: transform .15s; display: inline-block; }
+  .future[open] > summary::before, .wk[open] > summary::before { transform: rotate(90deg); }
+  .fut-title { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .fut-sub { font-size: 11px; color: var(--dim); }
+  #future { padding: 0 12px 12px; display: flex; flex-direction: column; gap: 8px; }
+  .wk { background: var(--base); border: 1px solid var(--line); border-radius: 10px; }
+  .wk > summary { padding: 11px 14px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .wk-name { font-weight: 700; font-size: 14px; min-width: 150px; }
+  .wk-hl { display: flex; gap: 6px; flex-wrap: wrap; font-size: 11.5px; flex: 1; min-width: 0; }
+  .hl { padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; flex: none; }
+  .hl.hlev { border-color: var(--red); color: #ffd7dd; }
+  .hl.gold { border-color: var(--gold); color: var(--gold); }
+  .hl.solid { background: var(--gold); color: var(--base); border-color: var(--gold); font-weight: 600; }
+  .wk-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; padding: 0 10px 10px; }
+  .fday { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px; min-height: 90px; }
+  .fday-name { font-size: 12.5px; font-weight: 700; }
+  .fday-name small { font-weight: 400; color: var(--dim); margin-left: 4px; }
+  .fday .ev { padding: 5px 0; }
+  .verify { font-size: 10px; color: var(--orange); border: 1px solid rgba(224,138,46,.5); border-radius: 4px; padding: 0 5px; }
+  .fday .tickers { margin-top: 6px; }
+  @media (max-width: 900px) { .wk-grid { grid-template-columns: 1fr; } }
+  aside { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 16px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+  .card h2 { margin: 0 0 10px; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; display: flex; justify-content: space-between; align-items: baseline; }
+  .card h2 span { color: var(--dim); font-size: 11px; letter-spacing: .5px; text-transform: none; font-weight: 400; }
+  .news { display: flex; flex-direction: column; max-height: calc(100vh - 330px); overflow-y: auto; margin-right: -6px; padding-right: 6px; }
+  .nw { display: grid; grid-template-columns: 34px 1fr; gap: 10px; padding: 9px 0; text-decoration: none; }
+  .nw + .nw { border-top: 1px solid var(--line); }
+  .nw:hover .nw-text { color: var(--gold); }
+  .score { font-size: 12px; font-weight: 700; text-align: center; padding: 4px 0; border-radius: 6px; background: var(--gold-soft); color: var(--gold); height: fit-content; }
+  .score.s9, .score.s10 { background: var(--gold); color: var(--base); }
+  .nw-text { font-size: 13px; line-height: 1.35; }
+  .nw-time { font-size: 11px; color: var(--dim); margin-top: 3px; }
+  .tag-go { font-size: 10px; font-weight: 700; color: var(--base); background: var(--muted); padding: 1px 5px; border-radius: 3px; margin-right: 4px; }
+  .ahead { font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .links { font-size: 12px; display: flex; flex-direction: column; gap: 6px; }
+  .links a { color: var(--muted); text-decoration: none; }
+  .links a:hover { color: var(--gold); }
+  footer { margin-top: 18px; font-size: 11px; color: var(--dim); }
+  @media (max-width: 1350px) { .layout { grid-template-columns: 1fr; } aside { position: static; } .news { max-height: 420px; } }
+  @media (max-width: 900px) { .week { grid-template-columns: 1fr; } .day { min-height: 0; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 24l2.5-14 6 6L16 7l3.5 9 6-6L28 24z" fill="#D4AF37"/><circle cx="16" cy="18" r="1.8" fill="#B3122E"/><circle cx="9.5" cy="20" r="1.3" fill="#B3122E"/><circle cx="22.5" cy="20" r="1.3" fill="#B3122E"/><rect x="4" y="25" width="24" height="2.5" rx="1" fill="#D4AF37"/></svg>
+    <div>
+      <div class="wordmark">SUDDY</div>
+      <div class="sub" id="weekTitle">Market week</div>
+    </div>
+  </div>
+  <div class="head-right">
+    <span class="chip" id="clock"></span>
+    <span class="chip gold" id="opexChip"></span>
+    <label class="toggle"><input type="checkbox" id="tMed" checked> USD orange folder</label>
+    <label class="toggle"><input type="checkbox" id="tUsd"> USD only</label>
+    <label class="toggle" title="Stories scoring 7/10: shown here, never pushed to your phone"><input type="checkbox" id="tNotable" checked> Notable news (7/10)</label>
+  </div>
+</header>
+
+<div class="flags" id="flags"></div>
+
+<div class="layout">
+  <div class="main-col">
+    <main class="week" id="week"></main>
+    <details class="future" id="futureBox" open>
+      <summary><span class="fut-title">Next 4 weeks</span><span class="fut-sub" id="futureSub"></span></summary>
+      <div id="future"></div>
+    </details>
+  </div>
+  <aside>
+    <div class="card">
+      <h2>Breaking news <span id="newsCount"></span></h2>
+      <div class="news" id="news"></div>
+    </div>
+    <div class="card">
+      <h2>Mag 7 earnings ahead <span>next 9 weeks</span></h2>
+      <div class="ahead" id="ahead"></div>
+    </div>
+    <div class="card">
+      <h2>Links</h2>
+      <div class="links">
+        <a href="https://www.forexfactory.com/calendar" target="_blank" rel="noopener">ForexFactory calendar ↗</a>
+        <a href="https://www.nasdaq.com/market-activity/earnings" target="_blank" rel="noopener">Nasdaq earnings calendar ↗</a>
+        <a href="https://www.tradingview.com/chart/" target="_blank" rel="noopener">TradingView ↗</a>
+        <a id="reportLink" href="/*REPORT_HREF*/">Latest Sunday report (full)</a>
+      </div>
+    </div>
+  </aside>
+</div>
+<footer id="foot"></footer>
+
+<script>
+const WEEK = /*WEEK_DATA*/null;
+const NEWS = /*NEWS_DATA*/[];
+const AHEAD = /*AHEAD_DATA*/null;
+const BUILT = "/*BUILT_AT*/";
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtDay = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-AU', { weekday: 'long' });
+const fmtDate = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-AU', { day: 'numeric', month: 'short' });
+function ago(iso) {
+  const m = Math.round((Date.now() - new Date(iso)) / 60000);
+  if (m < 1) return 'just now'; if (m < 60) return m + 'm ago';
+  const h = Math.round(m / 60); if (h < 24) return h + 'h ago';
+  return Math.round(h / 24) + 'd ago';
+}
+// Current NY trading day: from 6pm ET it's already the next day's session
+function nyTradingDay() {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hour12: false })
+    .formatToParts(new Date()).map(p => [p.type, p.value]));
+  const d = new Date(`${parts.year}-${parts.month}-${parts.day}T12:00:00`);
+  if (+parts.hour >= 18) d.setDate(d.getDate() + 1);
+  while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
+  return d.toISOString().slice(0, 10);
+}
+
+// Futures session for a trading day opens 6pm New York time the evening before; show that in Sydney time
+function sessionOpen(day) {
+  const prev = new Date(day + 'T12:00:00Z'); prev.setUTCDate(prev.getUTCDate() - 1);
+  const ymd = prev.toISOString().slice(0, 10);
+  for (const utcHour of [22, 23]) {
+    const t = new Date(`${ymd}T${utcHour}:00:00Z`);
+    const h = +new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hour: 'numeric', hour12: false }).format(t);
+    if (h === 18) return t.toLocaleString('en-AU', { weekday: 'short', hour: 'numeric', minute: '2-digit' });
+  }
+  return '';
+}
+
+function render() {
+  const today = nyTradingDay();
+  $('clock').innerHTML = `Sydney <b>${new Date().toLocaleTimeString('en-AU', { hour: 'numeric', minute: '2-digit' })}</b> · New York <b>${new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' })}</b>`;
+  if (!WEEK) { $('week').innerHTML = '<div class="empty">No data yet. Run build-dashboard.ps1 -Refresh.</div>'; return; }
+
+  const d0 = WEEK.days[0], d4 = WEEK.days[WEEK.days.length - 1];
+  $('weekTitle').textContent = `Market week · ${fmtDate(d0)} – ${fmtDate(d4)} (NY trading days, Sydney times)`;
+
+  // Next OPEX countdown
+  if (WEEK.nextOpex) {
+    const days = Math.round((new Date(WEEK.nextOpex.day + 'T12:00:00') - new Date(today + 'T12:00:00')) / 864e5);
+    $('opexChip').innerHTML = `Next ${WEEK.nextOpex.quad ? '<b>QUAD WITCHING</b>' : 'monthly OPEX'} · ${fmtDate(WEEK.nextOpex.day)} · ${days <= 0 ? 'today' : days + 'd'}`;
+  }
+
+  // Flags strip
+  const flags = [];
+  for (const o of WEEK.opex) flags.push(`<div class="flag">${o.kind === 'roll' ? 'ES/NQ roll' : esc(o.label)} · <b>${fmtDay(o.day)} ${fmtDate(o.day)}</b>${o.kind === 'roll' ? ' · check your MNQ contract month' : ''}</div>`);
+  for (const h of WEEK.holidays.filter(h => h.country === 'US market')) flags.push(`<div class="flag hol">US market: ${esc(h.name)} · <b>${fmtDay(h.day)}</b></div>`);
+  if (WEEK.ffStale) flags.push(`<div class="flag warn">Red folder feed hasn't rolled to this week yet. Check ForexFactory or the Sunday report.</div>`);
+  for (const w of (WEEK.warnings || []).filter(w => !w.startsWith('FF_STALE'))) flags.push(`<div class="flag warn">${esc(w)}</div>`);
+  $('flags').innerHTML = flags.join('');
+
+  // Day columns
+  $('week').innerHTML = WEEK.days.map(day => {
+    const ev = WEEK.events.filter(e => e.day === day).sort((a, b) => a.sort - b.sort);
+    const er = WEEK.earnings.filter(e => e.day === day).sort((a, b) => (a.tag === 'MAG7' ? 0 : a.tag === 'NQ' ? 1 : 2) - (b.tag === 'MAG7' ? 0 : b.tag === 'NQ' ? 1 : 2) || b.capB - a.capB);
+    const badges = [
+      ...WEEK.opex.filter(o => o.day === day).map(o => `<span class="badge ${o.kind}">${o.kind === 'roll' ? 'Roll date' : esc(o.label)}</span>`),
+      ...WEEK.holidays.filter(h => h.day === day).map(h => h.country === 'US market'
+        ? `<span class="badge ${/^CLOSED/.test(h.name) ? 'closed' : 'early'}">${/^CLOSED/.test(h.name) ? 'US closed' : 'Early close 1pm ET'}</span>`
+        : `<span class="badge bank" title="${esc(h.name)}">${esc(h.country.replace(' bank holiday', ''))} hol: ${esc(h.name.replace(/ \(.*\)$/, ''))}</span>`)
+    ].join('');
+    const evHtml = ev.length ? ev.map(e => {
+      const sessCls = e.session === 'Asia' ? 'asia' : e.session === 'NY open' ? 'nyopen' : '';
+      const fp = [e.forecast && `F ${esc(e.forecast)}`, e.previous && `P ${esc(e.previous)}`].filter(Boolean).join(' · ');
+      return `<div class="ev ${e.impact === 'High' ? 'high' : 'med'}" data-cc="${esc(e.country)}">
+        <div class="dot"></div>
+        <div>
+          <div class="ev-time">${esc(e.local.replace(/^\w+ /, ''))}<small>${esc(e.ny.replace(/^\w+ /, ''))}</small></div>
+          <div class="ev-title"><span class="cc">${esc(e.country)}</span>${esc(e.title)}</div>
+          <div class="ev-meta"><span class="sess ${sessCls}">${esc(e.session)}</span>${fp ? `<span>${fp}</span>` : ''}</div>
+        </div></div>`;
+    }).join('') : `<div class="empty">${WEEK.ffStale ? 'Feed not updated yet' : 'No red folder events'}</div>`;
+    const tk = list => list.map(x => `<span class="tk ${x.tag}" title="${esc(x.name)} · $${x.capB}B">${esc(x.symbol)}${x.tag ? '' : `<small>$${x.capB}B</small>`}</span>`).join('');
+    const groups = [['BMO', 'Before open'], ['AMC', 'After close'], ['TBC', 'Time TBC']]
+      .map(([k, label]) => { const l = er.filter(x => x.time === k); return l.length ? `<div class="earn-group">${label}</div><div class="tickers">${tk(l)}</div>` : ''; }).join('');
+    const cls = day === today ? 'today' : day < today ? 'past' : '';
+    return `<section class="day ${cls}">
+      <div class="day-head">
+        <div class="day-name">${fmtDay(day)}${day === today ? '<span class="today-pill">TODAY</span>' : ''}</div>
+        <div class="day-date">${fmtDate(day)} · opens ${sessionOpen(day)} Sydney</div>
+        ${badges ? `<div class="badges">${badges}</div>` : ''}
+      </div>
+      <div class="section"><div class="sec-title">Economic events</div>${evHtml}</div>
+      <div class="section"><div class="sec-title">Earnings</div>${groups || '<div class="empty">No major earnings</div>'}</div>
+    </section>`;
+  }).join('');
+
+  // News
+  $('newsCount').textContent = NEWS.length ? `last 7 days · ${NEWS.length}` : '';
+  let lastDay = '';
+  $('news').innerHTML = NEWS.length ? NEWS.map(n => {
+    const m = n.text.match(/^(GOLD|OIL):\s*/i);
+    const txt = m ? n.text.slice(m[0].length) : n.text;
+    const dayLabel = new Date(n.t).toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'short' });
+    const sep = dayLabel !== lastDay ? `<div class="news-day">${dayLabel}</div>` : ''; lastDay = dayLabel;
+    return sep + `<a class="nw ${n.score < 8 ? 'notable' : ''}" ${n.link ? `href="${esc(n.link)}" target="_blank" rel="noopener"` : ''}>
+      <div class="score s${n.score}">${n.score}</div>
+      <div><div class="nw-text">${m ? `<span class="tag-go">${esc(m[1].toUpperCase())}</span>` : ''}${esc(txt)}</div>
+      <div class="nw-time">${ago(n.t)} · ${new Date(n.t).toLocaleString('en-AU', { weekday: 'short', hour: 'numeric', minute: '2-digit' })}</div></div></a>`;
+  }).join('') : '<div class="empty">No market-moving headlines in the last 7 days.</div>';
+
+  $('ahead').innerHTML = (WEEK.mag7Ahead && WEEK.mag7Ahead.length)
+    ? WEEK.mag7Ahead.map(a => `<span class="tk MAG7">${esc(a)}</span>`).join('')
+    : '<div class="empty">None on the calendar yet. Dates usually appear 3–5 weeks out.</div>';
+
+  renderFuture();
+  $('foot').textContent = `Calendar data refreshed ${ago(WEEK.generated)} · page built ${ago(BUILT)} · reloads every 5 min · Sources: ForexFactory, Nasdaq, Nager.Date, Bloomberg/CNBC/WSJ/FT/MarketWatch RSS. Not financial advice.`;
+  if (!'/*REPORT_HREF*/'.includes('reports/') && $('reportLink').getAttribute('href') === '') $('reportLink').style.display = 'none';
+}
+
+const tagRank = t => t === 'MAG7' ? 0 : t === 'NQ' ? 1 : 2;
+function renderFuture() {
+  if (!AHEAD) { $('future').innerHTML = '<div class="empty">No look-ahead data yet. Run build-dashboard.ps1 -Refresh.</div>'; return; }
+  $('futureSub').textContent = `Big US releases (checked ${AHEAD.eventsUpdated ? fmtDate(AHEAD.eventsUpdated) : 'never'}) · earnings · OPEX · holidays`;
+  const open = JSON.parse(localStorage.getItem('openWeeks') || 'null') || [AHEAD.weeks[0]];
+  $('future').innerHTML = AHEAD.weeks.map(mon => {
+    const days = [0, 1, 2, 3, 4].map(i => { const d = new Date(mon + 'T12:00:00Z'); d.setUTCDate(d.getUTCDate() + i); return d.toISOString().slice(0, 10); });
+    const inWk = x => days.includes(x.day);
+    const ev = AHEAD.events.filter(inWk), er = AHEAD.earnings.filter(inWk), op = AHEAD.opex.filter(inWk), ho = AHEAD.holidays.filter(inWk);
+    const shortName = t => t.replace(/ \(.*?\)| \+.*$|, .*$/g, '').replace('Non-Farm Payrolls', 'NFP').replace('FOMC rate decision', 'FOMC');
+    const hl = [
+      ...ev.map(e => `<span class="hl hlev">${esc(shortName(e.title))} ${fmtDay(e.day).slice(0, 3)}</span>`),
+      ...op.map(o => `<span class="hl ${o.kind === 'quad' ? 'solid' : 'gold'}">${o.kind === 'roll' ? 'Roll' : esc(o.label)} ${fmtDay(o.day).slice(0, 3)}</span>`),
+      ...ho.filter(h => h.country === 'US market').map(h => `<span class="hl">${/^CLOSED/.test(h.name) ? 'US closed' : 'Early close'} ${fmtDay(h.day).slice(0, 3)}</span>`),
+      ...er.filter(x => x.tag).sort((a, b) => tagRank(a.tag) - tagRank(b.tag)).slice(0, 6).map(x => `<span class="hl ${x.tag === 'MAG7' ? 'solid' : 'gold'}">${esc(x.symbol)}</span>`)
+    ].join('') || '<span class="hl">Quiet week so far</span>';
+    const grid = days.map(day => {
+      const badges = [
+        ...op.filter(o => o.day === day).map(o => `<span class="badge ${o.kind}">${o.kind === 'roll' ? 'Roll date' : esc(o.label)}</span>`),
+        ...ho.filter(h => h.day === day).map(h => h.country === 'US market'
+          ? `<span class="badge ${/^CLOSED/.test(h.name) ? 'closed' : 'early'}">${/^CLOSED/.test(h.name) ? 'US closed' : 'Early close 1pm ET'}</span>`
+          : `<span class="badge bank" title="${esc(h.name)}">${esc(h.country.replace(' bank holiday', ''))} hol: ${esc(h.name.replace(/ \(.*\)$/, ''))}</span>`)
+      ].join('');
+      const evs = ev.filter(e => e.day === day).sort((a, b) => a.sort - b.sort).map(e => `<div class="ev high"><div class="dot"></div><div>
+          <div class="ev-time">${esc(e.local.replace(/^\w+ /, ''))}<small>${esc(e.ny)}</small></div>
+          <div class="ev-title"><span class="cc">USD</span>${esc(e.title)}</div>
+          ${e.status === 'verify' ? `<div class="ev-meta"><span class="verify" title="${esc(e.source)}">verify date</span></div>` : ''}</div></div>`).join('');
+      const tks = er.filter(x => x.day === day).sort((a, b) => tagRank(a.tag) - tagRank(b.tag) || b.capB - a.capB)
+        .map(x => `<span class="tk ${x.tag}" title="${esc(x.name)} · $${x.capB}B · ${x.time === 'BMO' ? 'before open' : x.time === 'AMC' ? 'after close' : 'time TBC'}">${esc(x.symbol)}<small>${x.time === 'TBC' ? '' : x.time}</small></span>`).join('');
+      return `<div class="fday"><div class="fday-name">${fmtDay(day).slice(0, 3)}<small>${fmtDate(day)}</small></div>
+        ${badges ? `<div class="badges">${badges}</div>` : ''}${evs}${tks ? `<div class="tickers">${tks}</div>` : ''}
+        ${!badges && !evs && !tks ? '<div class="empty" style="margin-top:6px">Nothing major</div>' : ''}</div>`;
+    }).join('');
+    return `<details class="wk" data-wk="${mon}" ${open.includes(mon) ? 'open' : ''}>
+      <summary><span class="wk-name">Week of ${fmtDate(mon)}</span><span class="wk-hl">${hl}</span></summary>
+      <div class="wk-grid">${grid}</div></details>`;
+  }).join('') + (AHEAD.warnings && AHEAD.warnings.length ? `<div class="empty">${esc(AHEAD.warnings.join(' · '))}</div>` : '');
+  document.querySelectorAll('.wk').forEach(d => d.addEventListener('toggle', () => {
+    localStorage.setItem('openWeeks', JSON.stringify([...document.querySelectorAll('.wk[open]')].map(x => x.dataset.wk)));
+  }));
+}
+// Remember whether the whole section is collapsed
+const fb = $('futureBox'); if (localStorage.getItem('futureOpen') === '0') fb.open = false;
+fb.addEventListener('toggle', () => localStorage.setItem('futureOpen', fb.open ? '1' : '0'));
+
+// Toggles (remembered)
+for (const [id, cls, def, hideWhenOff] of [['tMed', 'hide-med', true, true], ['tUsd', 'hide-nonusd', false, false], ['tNotable', 'hide-notable', true, true]]) {
+  const el = $(id); const saved = localStorage.getItem(id);
+  el.checked = saved === null ? def : saved === '1';
+  const apply = () => { document.body.classList.toggle(cls, hideWhenOff ? !el.checked : el.checked); localStorage.setItem(id, el.checked ? '1' : '0'); };
+  el.addEventListener('change', apply); apply();
+}
+render();
+setInterval(() => { $('clock') && render(); }, 60000);
+</script>
+</body>
+</html>

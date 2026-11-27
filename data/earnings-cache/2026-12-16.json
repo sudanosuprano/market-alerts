@@ -1,0 +1,112 @@
+﻿[
+    {
+        "lastYearRptDt":  "12/17/2025",
+        "lastYearEPS":  "$2.30",
+        "time":  "time-not-supplied",
+        "symbol":  "JBL",
+        "name":  "Jabil Inc.",
+        "marketCap":  "$23,343,282,200",
+        "fiscalQuarterEnding":  "Nov/2026",
+        "epsForecast":  "$3.64",
+        "noOfEsts":  "4"
+    },
+    {
+        "lastYearRptDt":  "12/17/2025",
+        "lastYearEPS":  "$0.91",
+        "time":  "time-pre-market",
+        "symbol":  "TTC",
+        "name":  "Toro Company (The)",
+        "marketCap":  "$9,893,269,500",
+        "fiscalQuarterEnding":  "Oct/2026",
+        "epsForecast":  "$0.97",
+        "noOfEsts":  "4"
+    },
+    {
+        "lastYearRptDt":  "12/17/2025",
+        "lastYearEPS":  "$0.88",
+        "time":  "time-not-supplied",
+        "symbol":  "ABM",
+        "name":  "ABM Industries Incorporated",
+        "marketCap":  "$3,210,321,150",
+        "fiscalQuarterEnding":  "Oct/2026",
+        "epsForecast":  "$1.24",
+        "noOfEsts":  "3"
+    },
+    {
+        "lastYearRptDt":  "12/17/2025",
+        "lastYearEPS":  "$0.36",
+        "time":  "time-not-supplied",
+        "symbol":  "EPAC",
+        "name":  "Enerpac Tool Group Corp.",
+        "marketCap":  "$1,924,989,310",
+        "fiscalQuarterEnding":  "Nov/2026",
+        "epsForecast":  "$0.34",
+        "noOfEsts":  "3"
+    },
+    {
+        "lastYearRptDt":  "12/17/2025",
+        "lastYearEPS":  "$0.38",
+        "time":  "time-not-supplied",
+        "symbol":  "WS",
+        "name":  "Worthington Steel, Inc.",
+        "marketCap":  "$1,821,796,990",
+        "fiscalQuarterEnding":  "Nov/2026",
+        "epsForecast":  "$0.99",
+        "noOfEsts":  "2"
+    },
+    {
+        "lastYearRptDt":  "12/17/2025",
+        "lastYearEPS":  "$0.43",
+        "time":  "time-after-hours",
+        "symbol":  "MLKN",
+        "name":  "MillerKnoll, Inc.",
+        "marketCap":  "$1,395,259,900",
+        "fiscalQuarterEnding":  "Nov/2026",
+        "epsForecast":  "$0.45",
+        "noOfEsts":  "3"
+    },
+    {
+        "lastYearRptDt":  "12/17/2025",
+        "lastYearEPS":  "$0.24",
+        "time":  "time-not-supplied",
+        "symbol":  "OPXS",
+        "name":  "Optex Systems Holdings, Inc.",
+        "marketCap":  "$52,616,640",
+        "fiscalQuarterEnding":  "Sep/2026",
+        "epsForecast":  "$0.25",
+        "noOfEsts":  "1"
+    },
+    {
+        "lastYearRptDt":  "N/A",
+        "lastYearEPS":  "N/A",
+        "time":  "time-not-supplied",
+        "symbol":  "VERU",
+        "name":  "Veru Inc.",
+        "marketCap":  "$36,317,184",
+        "fiscalQuarterEnding":  "Sep/2026",
+        "epsForecast":  "($0.34)",
+        "noOfEsts":  "4"
+    },
+    {
+        "lastYearRptDt":  "N/A",
+        "lastYearEPS":  "($0.20)",
+        "time":  "time-not-supplied",
+        "symbol":  "YI",
+        "name":  "111, Inc.",
+        "marketCap":  "$21,552,562",
+        "fiscalQuarterEnding":  "Sep/2026",
+        "epsForecast":  "",
+        "noOfEsts":  "4"
+    },
+    {
+        "lastYearRptDt":  "N/A",
+        "lastYearEPS":  "($0.30)",
+        "time":  "time-not-supplied",
+        "symbol":  "JOB",
+        "name":  "GEE Group Inc.",
+        "marketCap":  "$20,838,806",
+        "fiscalQuarterEnding":  "Sep/2026",
+        "epsForecast":  "",
+        "noOfEsts":  "4"
+    }
+]

@@ -1,0 +1,219 @@
+﻿{
+    "generated":  "2026-11-27T07:00:31.7517762+00:00",
+    "mode":  "weekly",
+    "title":  "Week of Mon 23 Nov 2026 (NY time)",
+    "days":  [
+                 "2026-11-23",
+                 "2026-11-24",
+                 "2026-11-25",
+                 "2026-11-26",
+                 "2026-11-27"
+             ],
+    "events":  [
+                   {
+                       "day":  "2026-11-25",
+                       "impact":  "High",
+                       "country":  "AUD",
+                       "title":  "Trimmed Mean CPI m/m",
+                       "forecast":  "0.3%",
+                       "previous":  "0.3%",
+                       "session":  "Asia",
+                       "local":  "Wed 11:30AM",
+                       "ny":  "Tue 7:30PM ET",
+                       "sort":  1795566600
+                   },
+                   {
+                       "day":  "2026-11-25",
+                       "impact":  "High",
+                       "country":  "AUD",
+                       "title":  "CPI y/y",
+                       "forecast":  "4.7%",
+                       "previous":  "4.3%",
+                       "session":  "Asia",
+                       "local":  "Wed 11:30AM",
+                       "ny":  "Tue 7:30PM ET",
+                       "sort":  1795566600
+                   },
+                   {
+                       "day":  "2026-11-25",
+                       "impact":  "High",
+                       "country":  "AUD",
+                       "title":  "CPI m/m",
+                       "forecast":  "0.4%",
+                       "previous":  "0.8%",
+                       "session":  "Asia",
+                       "local":  "Wed 11:30AM",
+                       "ny":  "Tue 7:30PM ET",
+                       "sort":  1795566600
+                   },
+                   {
+                       "day":  "2026-11-25",
+                       "impact":  "High",
+                       "country":  "USD",
+                       "title":  "Prelim GDP q/q",
+                       "forecast":  "3.5%",
+                       "previous":  "3.4%",
+                       "session":  "NY open",
+                       "local":  "Thu 12:30AM",
+                       "ny":  "Wed 8:30AM ET",
+                       "sort":  1795613400
+                   },
+                   {
+                       "day":  "2026-11-25",
+                       "impact":  "High",
+                       "country":  "USD",
+                       "title":  "Core PCE Price Index m/m",
+                       "forecast":  "0.3%",
+                       "previous":  "0.3%",
+                       "session":  "NY open",
+                       "local":  "Thu 12:30AM",
+                       "ny":  "Wed 8:30AM ET",
+                       "sort":  1795613400
+                   },
+                   {
+                       "day":  "2026-11-23",
+                       "impact":  "Medium",
+                       "country":  "USD",
+                       "title":  "Flash Services PMI",
+                       "forecast":  "55.6",
+                       "previous":  "57.9",
+                       "session":  "NY open",
+                       "local":  "Tue 1:45AM",
+                       "ny":  "Mon 9:45AM ET",
+                       "sort":  1795445100
+                   },
+                   {
+                       "day":  "2026-11-23",
+                       "impact":  "Medium",
+                       "country":  "USD",
+                       "title":  "Flash Manufacturing PMI",
+                       "forecast":  "54.5",
+                       "previous":  "56.0",
+                       "session":  "NY open",
+                       "local":  "Tue 1:45AM",
+                       "ny":  "Mon 9:45AM ET",
+                       "sort":  1795445100
+                   },
+                   {
+                       "day":  "2026-11-24",
+                       "impact":  "Medium",
+                       "country":  "USD",
+                       "title":  "CB Consumer Confidence",
+                       "forecast":  "92.4",
+                       "previous":  "91.7",
+                       "session":  "NY open",
+                       "local":  "Wed 2:00AM",
+                       "ny":  "Tue 10:00AM ET",
+                       "sort":  1795532400
+                   },
+                   {
+                       "day":  "2026-11-25",
+                       "impact":  "Medium",
+                       "country":  "USD",
+                       "title":  "Prelim GDP Price Index q/q",
+                       "forecast":  "2.3%",
+                       "previous":  "2.3%",
+                       "session":  "NY open",
+                       "local":  "Thu 12:30AM",
+                       "ny":  "Wed 8:30AM ET",
+                       "sort":  1795613400
+                   }
+               ],
+    "earnings":  [
+                     {
+                         "day":  "2026-11-23",
+                         "symbol":  "CRWD",
+                         "name":  "CrowdStrike Holdings, Inc.",
+                         "capB":  217,
+                         "time":  "TBC",
+                         "tag":  "NQ"
+                     },
+                     {
+                         "day":  "2026-11-23",
+                         "symbol":  "HPE",
+                         "name":  "Hewlett Packard Enterprise Company",
+                         "capB":  53,
+                         "time":  "TBC",
+                         "tag":  ""
+                     },
+                     {
+                         "day":  "2026-11-23",
+                         "symbol":  "A",
+                         "name":  "Agilent Technologies, Inc.",
+                         "capB":  52,
+                         "time":  "TBC",
+                         "tag":  ""
+                     },
+                     {
+                         "day":  "2026-11-24",
+                         "symbol":  "DELL",
+                         "name":  "Dell Technologies Inc.",
+                         "capB":  188,
+                         "time":  "TBC",
+                         "tag":  ""
+                     },
+                     {
+                         "day":  "2026-11-24",
+                         "symbol":  "ADI",
+                         "name":  "Analog Devices, Inc.",
+                         "capB":  152,
+                         "time":  "TBC",
+                         "tag":  "NQ"
+                     },
+                     {
+                         "day":  "2026-11-24",
+                         "symbol":  "MDT",
+                         "name":  "Medtronic plc",
+                         "capB":  123,
+                         "time":  "TBC",
+                         "tag":  ""
+                     },
+                     {
+                         "day":  "2026-11-24",
+                         "symbol":  "ADSK",
+                         "name":  "Autodesk, Inc.",
+                         "capB":  53,
+                         "time":  "TBC",
+                         "tag":  ""
+                     },
+                     {
+                         "day":  "2026-11-25",
+                         "symbol":  "DE",
+                         "name":  "Deere \u0026 Company",
+                         "capB":  165,
+                         "time":  "TBC",
+                         "tag":  ""
+                     }
+                 ],
+    "opex":  [
+
+             ],
+    "holidays":  [
+                     {
+                         "day":  "2026-11-26",
+                         "country":  "US market",
+                         "name":  "CLOSED Thanksgiving"
+                     },
+                     {
+                         "day":  "2026-11-27",
+                         "country":  "US market",
+                         "name":  "EARLY CLOSE 1pm ET (day after Thanksgiving)"
+                     },
+                     {
+                         "day":  "2026-11-26",
+                         "country":  "US bank holiday",
+                         "name":  "Thanksgiving Day (nationwide)"
+                     }
+                 ],
+    "mag7Ahead":  [
+
+                  ],
+    "nextOpex":  {
+                     "day":  "2026-12-18",
+                     "quad":  true
+                 },
+    "warnings":  [
+
+                 ],
+    "ffStale":  false
+}

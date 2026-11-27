@@ -1,0 +1,33 @@
+name: News watcher
+# Every 10 minutes: score new headlines with Claude (Haiku) and push 8+/10 to ntfy.
+# GitHub runs scheduled jobs on a best-effort basis, so expect 10-20 minutes between runs.
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: state          # one job at a time touches data/ so pushes don't clash
+  cancel-in-progress: false
+
+env:
+  SUDDY_TZ: Australia/Sydney
+  NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+  CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Check news
+        shell: pwsh
+        run: ./news-watch.ps1
+      - name: Save state
+        run: bash .github/save-state.sh "news: update"

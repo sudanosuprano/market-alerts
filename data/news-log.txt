@@ -1,0 +1,36 @@
+2026-11-27 15:29:04 NEW 193 headlines
+2026-11-27 15:29:04 NO_CLAUDE: used keyword filter
+2026-11-27 15:35:25 NEW 3 headlines
+2026-11-27 15:35:25 NO_CLAUDE: used keyword filter
+2026-11-27 15:44:21 NEW 145 headlines
+2026-11-27 15:44:58 NEW 145 headlines
+2026-11-27 15:47:11 NEW 198 headlines
+2026-11-27 15:55:24 NEW 1 headlines
+2026-11-27 16:04:36 NEW 5 headlines
+2026-11-27 16:08:02 NEW 242 headlines
+2026-11-27 16:09:34 NEW 242 headlines
+2026-11-27 16:10:58 NOTE [7] OIL: Oil on track for weekly gain on Mideast attacks on energy infrastructure and tankers | https://www.bloomberg.com/news/articles/2026-11-26/latest-oil-market-news-and-analysis-for-nov-27 | pub=2026-11-26T23:05:38Z
+2026-11-27 16:10:58 NOTE [7] PCE inflation accelerated to 3.8% in October, as expected; raises 2027 Fed hike stakes | https://www.cnbc.com/2026/11/25/pce-inflation-report-october-2026.html | pub=2026-11-25T14:18:45Z
+2026-11-27 16:10:58 NOTE [7] S&P warns Nvidia credit rating could be cut a notch over management and governance risk | https://www.cnbc.com/2026/11/26/nvidia-market-governance-risk.html | pub=2026-11-26T03:19:44Z
+2026-11-27 16:10:58 NOTE [7] Houthi drone attack on Saudi PIF tower injures 11, second hit in six days | https://www.cnbc.com/2026/11/25/us-iran-war-trump-hormuz-houthi-saudi-pif-tower.html | pub=2026-11-25T02:36:43Z
+2026-11-27 16:10:58 NOTE [7] OIL: OPEC+ top members clash over output estimates before Sunday meeting | https://www.ft.com/content/b24d5c8c-4c9b-48f0-b4a8-5f83eee2d3e9?syn-25a6b1a6=1 | pub=2026-11-25T14:27:46Z
+2026-11-27 16:10:58 ALERT [10] Trump pressure led Nvidia to reinstate CEO Jensen Huang; bipartisan scrutiny grows | https://www.cnbc.com/2026/11/25/huang-reinstatement-reignites-voter-angst-over-techs-outsized-power.html | pub=2026-11-25T13:20:34Z
+2026-11-27 16:10:58 ALERT [9] OIL: 3 tankers hit mines in Hormuz despite US escort; Treasury widens Iran sanctions | https://www.cnbc.com/2026/11/24/iran-trump-hormuz-crude-.html | pub=2026-11-24T05:05:08Z
+2026-11-27 16:10:58 ALERT [9] US plans fresh tariff salvo on 14 trading partners, with lower rates for deal signers | https://www.cnbc.com/2026/11/26/us-tariffs-hike-trade-agreement.html | pub=2026-11-26T12:46:55Z
+2026-11-27 16:10:58 ALERT [8] FT: Fed poised to raise rates despite tech-led stock sell-off | https://www.ft.com/content/3890f725-66dd-4613-8a60-d9e3ea38d25a?syn-25a6b1a6=1 | pub=2026-11-26T14:58:45Z
+2026-11-27 16:10:58 ALERT [8] OIL: Houthis claim attack on Saudi Rabigh refinery; Trump warns of new strikes | https://www.cnbc.com/2026/11/23/trump-iran-war-hormuz-saudi-.html | pub=2026-11-23T03:52:17Z
+2026-11-27 16:10:58 ALERT [8] Anthropic IPO slump; brutal selloff wipes out $4T of AI value on Wall Street | https://www.wsj.com/finance/stocks/anthropics-ipo-bust-punctuates-4-trillion-ai-wipeout-on-wall-street-f1f1ec90?mod=rss_markets_main | pub=2026-11-20T23:36:00Z
+2026-11-27 16:10:58 ALERT [8] Dutch government says it will resist proposed US curbs on ASML sales to China | https://www.bloomberg.com/news/articles/2026-11-26/netherlands-plans-to-fight-rollout-of-proposed-us-curbs-on-asml | pub=2026-11-26T12:23:12Z
+2026-11-27 16:10:58 ALERT [8] Nvidia chip buyers told to rule out Chinese renters for GPUs under new BIS rule | https://www.cnbc.com/2026/11/26/neoclouds-nvidia-china-ai.html | pub=2026-11-26T17:04:54Z
+2026-11-27 16:10:58 ALERT [8] Iran war: Kuwait drone attack kills two Italians; Trump says war ends when he wants | https://www.cnbc.com/2026/11/27/us-iran-war-trump-hormuz-italian-killed-trump.html | pub=2026-11-27T03:30:23Z
+2026-11-27 16:14:36 NEW 3 headlines
+2026-11-27 16:19:36 NEW 2 headlines
+2026-11-27 16:24:36 NEW 1 headlines
+2026-11-27 16:29:36 NEW 2 headlines
+2026-11-27 16:34:36 NEW 1 headlines
+2026-11-27 16:44:36 NEW 1 headlines
+2026-11-27 17:43:36 NEW 20 headlines
+2026-11-27 17:43:49 NOTE [7] OIL: Oil on track for weekly gain as tanker and energy-infrastructure attacks escalate | https://www.bloomberg.com/news/videos/2026-11-27/oil-on-track-for-weekly-gain-as-hostilities-escalate-video | pub=2026-11-27T06:08:09Z
+2026-11-27 17:43:49 ALERT [8] Huang's 'shocking return' to Nvidia; fallout to tighten China's advanced-chip access | https://www.bloomberg.com/news/videos/2026-11-27/bloomberg-tech-asia-11-27-2026-video | pub=2026-11-27T06:10:54Z
+2026-11-27 17:49:36 NEW 1 headlines
+2026-11-27 17:59:36 NEW 3 headlines
