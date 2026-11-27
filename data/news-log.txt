@@ -54,3 +54,5 @@
 2026-11-28 03:09:40 NEW 18 headlines
 2026-11-28 04:21:05 NEW 10 headlines
 2026-11-28 05:16:05 NEW 6 headlines
+2026-11-28 06:23:18 NEW 7 headlines
+2026-11-28 06:23:24 NOTE [7] France joins Netherlands opposing proposed US export curbs hitting ASML | https://www.bloomberg.com/news/articles/2026-11-27/france-joins-the-dutch-in-opposing-proposed-us-export-curbs | pub=2026-11-27T17:06:00Z
