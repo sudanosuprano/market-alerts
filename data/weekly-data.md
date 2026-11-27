@@ -1,6 +1,6 @@
-﻿# Market data pack: weekly
+# Market data pack: weekly
 Week of Mon 30 Nov 2026 (NY time)
-Generated Fri 27 Nov 3:51PM local (AUS Eastern Standard Time). Local times first, NY time in brackets.
+Generated Fri 27 Nov 6:22PM local (Australia/Sydney). Local times first, NY time in brackets.
 
 ## Red folder (high impact) events
 _Feed has not rolled over to this week yet. See warnings._
@@ -12,7 +12,7 @@ MAG7 = Magnificent 7. NQ = other Nasdaq-100 heavyweights. Others are any company
 - Wed 2 Dec NY: **NQ** CRM (after close, $159B), BMO (before open, $112B), BNS (before open, $104B), SNOW (after close, $96B)
 - Thu 3 Dec NY: RY (before open, $262B), TD (before open, $189B), CM (before open, $96B)
 - Fri 4 Dec NY: none
-- Coming up (next 6 weeks, Mag 7 only; may be estimated dates): none scheduled yet
+- Coming up (next 9 weeks, Mag 7 only; may be estimated dates): none scheduled yet
 
 ## Options expiry (OPEX)
 No monthly OPEX this window (0DTE/weekly options still expire daily).

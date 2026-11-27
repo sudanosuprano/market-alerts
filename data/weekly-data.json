@@ -1,0 +1,98 @@
+{
+  "generated": "2026-11-27T07:22:41.9937328+00:00",
+  "mode": "weekly",
+  "title": "Week of Mon 30 Nov 2026 (NY time)",
+  "days": [
+    "2026-11-30",
+    "2026-12-01",
+    "2026-12-02",
+    "2026-12-03",
+    "2026-12-04"
+  ],
+  "events": [],
+  "earnings": [
+    {
+      "day": "2026-12-01",
+      "symbol": "BHP",
+      "name": "BHP Group Limited",
+      "capB": 175.0,
+      "time": "TBC",
+      "tag": ""
+    },
+    {
+      "day": "2026-12-01",
+      "symbol": "MRVL",
+      "name": "Marvell Technology, Inc.",
+      "capB": 115.0,
+      "time": "AMC",
+      "tag": "NQ"
+    },
+    {
+      "day": "2026-12-02",
+      "symbol": "CRM",
+      "name": "Salesforce, Inc.",
+      "capB": 159.0,
+      "time": "AMC",
+      "tag": "NQ"
+    },
+    {
+      "day": "2026-12-02",
+      "symbol": "BMO",
+      "name": "Bank Of Montreal",
+      "capB": 112.0,
+      "time": "BMO",
+      "tag": ""
+    },
+    {
+      "day": "2026-12-02",
+      "symbol": "BNS",
+      "name": "Bank of Nova Scotia (The)",
+      "capB": 104.0,
+      "time": "BMO",
+      "tag": ""
+    },
+    {
+      "day": "2026-12-02",
+      "symbol": "SNOW",
+      "name": "Snowflake Inc.",
+      "capB": 96.0,
+      "time": "AMC",
+      "tag": ""
+    },
+    {
+      "day": "2026-12-03",
+      "symbol": "RY",
+      "name": "Royal Bank Of Canada",
+      "capB": 262.0,
+      "time": "BMO",
+      "tag": ""
+    },
+    {
+      "day": "2026-12-03",
+      "symbol": "TD",
+      "name": "Toronto Dominion Bank (The)",
+      "capB": 189.0,
+      "time": "BMO",
+      "tag": ""
+    },
+    {
+      "day": "2026-12-03",
+      "symbol": "CM",
+      "name": "Canadian Imperial Bank of Commerce",
+      "capB": 96.0,
+      "time": "BMO",
+      "tag": ""
+    }
+  ],
+  "opex": [],
+  "holidays": [],
+  "mag7Ahead": [],
+  "nextOpex": {
+    "day": "2026-12-18",
+    "quad": true
+  },
+  "warnings": [
+    "FF_STALE: the ForexFactory feed still shows the previous week (latest event 2026-11-27). Red-folder events for this window must be found by web search."
+  ],
+  "ffStale": true
+}

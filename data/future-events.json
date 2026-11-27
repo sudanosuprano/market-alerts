@@ -1,14 +1,16 @@
 {
   "updated": "2026-11-27",
-  "note": "Major scheduled US releases for the coming weeks, kept up to date by the Sunday Claude task from official schedules (BLS, BEA, Federal Reserve, ISM). 'verify' = sources disagreed or the date follows the usual pattern rather than a published schedule.",
+  "note": "Major scheduled US releases for the coming weeks, kept up to date by the Sunday Claude task from official schedules (BLS, BEA, Federal Reserve, ISM). 'verify' = date follows the usual pattern rather than a published schedule. Retail sales (Census) and Fed chair speeches not yet confirmed for this window.",
   "events": [
     { "date": "2026-12-01", "timeET": "10:00", "title": "ISM Manufacturing PMI", "impact": "High", "status": "verify", "source": "ISM usual schedule (1st business day)" },
+    { "date": "2026-12-01", "timeET": "10:00", "title": "JOLTS (Oct)", "impact": "High", "status": "confirmed", "source": "BLS schedule" },
     { "date": "2026-12-03", "timeET": "10:00", "title": "ISM Services PMI", "impact": "High", "status": "verify", "source": "ISM usual schedule (3rd business day)" },
     { "date": "2026-12-04", "timeET": "08:30", "title": "Non-Farm Payrolls + Unemployment Rate (Nov)", "impact": "High", "status": "confirmed", "source": "BLS schedule" },
     { "date": "2026-12-09", "timeET": "14:00", "title": "FOMC rate decision + dot plot (press conference 2:30pm ET)", "impact": "High", "status": "confirmed", "source": "Federal Reserve calendar (Dec 8-9 meeting)" },
     { "date": "2026-12-10", "timeET": "08:30", "title": "CPI (Nov)", "impact": "High", "status": "confirmed", "source": "BLS schedule" },
-    { "date": "2026-12-16", "timeET": "10:00", "title": "PPI (Nov)", "impact": "High", "status": "verify", "source": "BLS schedule (time listed as 10am, unusual)" },
-    { "date": "2026-12-23", "timeET": "08:30", "title": "Core PCE + Personal Income/Spending (Nov)", "impact": "High", "status": "verify", "source": "BEA schedule (sources conflict)" },
-    { "date": "2026-12-23", "timeET": "08:30", "title": "GDP Q3 third estimate", "impact": "High", "status": "verify", "source": "BEA schedule" }
+    { "date": "2026-12-15", "timeET": "08:30", "title": "PPI (Nov)", "impact": "High", "status": "confirmed", "source": "BLS schedule" },
+    { "date": "2026-12-23", "timeET": "08:30", "title": "Core PCE + Personal Income/Spending (Nov)", "impact": "High", "status": "confirmed", "source": "BEA schedule" },
+    { "date": "2026-12-23", "timeET": "08:30", "title": "GDP Q3 third estimate", "impact": "High", "status": "confirmed", "source": "BEA schedule" },
+    { "date": "2026-12-30", "timeET": "14:00", "title": "FOMC minutes (Dec 8-9 meeting)", "impact": "High", "status": "verify", "source": "Usual 3 weeks after meeting; not listed on federalreserve.gov" }
   ]
 }

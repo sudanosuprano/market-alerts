@@ -186,7 +186,7 @@
         <a href="https://www.forexfactory.com/calendar" target="_blank" rel="noopener">ForexFactory calendar ↗</a>
         <a href="https://www.nasdaq.com/market-activity/earnings" target="_blank" rel="noopener">Nasdaq earnings calendar ↗</a>
         <a href="https://www.tradingview.com/chart/" target="_blank" rel="noopener">TradingView ↗</a>
-        <a id="reportLink" href="">Latest Sunday report (full)</a>
+        <a id="reportLink" href="reports/2026-11-30-weekly.md">Latest Sunday report (full)</a>
       </div>
     </div>
   </aside>
@@ -195,7 +195,7 @@
 
 <script>
 const WEEK = {
-  "generated": "2026-11-27T07:06:23.4649548+00:00",
+  "generated": "2026-11-27T07:23:56.8419559+00:00",
   "mode": "weekly",
   "title": "Week of Mon 23 Nov 2026 (NY time)",
   "days": [
@@ -507,7 +507,7 @@ const NEWS = [
   }
 ];
 const AHEAD = {
-  "generated": "2026-11-27T07:06:36.3812450+00:00",
+  "generated": "2026-11-27T07:24:07.6334862+00:00",
   "eventsUpdated": "2026-11-27",
   "weeks": [
     "2026-11-30",
@@ -522,6 +522,16 @@ const AHEAD = {
       "impact": "High",
       "status": "verify",
       "source": "ISM usual schedule (1st business day)",
+      "local": "Wed 2:00AM",
+      "ny": "10:00AM ET",
+      "sort": 1796137200
+    },
+    {
+      "day": "2026-12-01",
+      "title": "JOLTS (Oct)",
+      "impact": "High",
+      "status": "confirmed",
+      "source": "BLS schedule",
       "local": "Wed 2:00AM",
       "ny": "10:00AM ET",
       "sort": 1796137200
@@ -567,21 +577,21 @@ const AHEAD = {
       "sort": 1796909400
     },
     {
-      "day": "2026-12-16",
+      "day": "2026-12-15",
       "title": "PPI (Nov)",
       "impact": "High",
-      "status": "verify",
-      "source": "BLS schedule (time listed as 10am, unusual)",
-      "local": "Thu 2:00AM",
-      "ny": "10:00AM ET",
-      "sort": 1797433200
+      "status": "confirmed",
+      "source": "BLS schedule",
+      "local": "Wed 12:30AM",
+      "ny": "8:30AM ET",
+      "sort": 1797341400
     },
     {
       "day": "2026-12-23",
       "title": "Core PCE + Personal Income/Spending (Nov)",
       "impact": "High",
-      "status": "verify",
-      "source": "BEA schedule (sources conflict)",
+      "status": "confirmed",
+      "source": "BEA schedule",
       "local": "Thu 12:30AM",
       "ny": "8:30AM ET",
       "sort": 1798032600
@@ -590,7 +600,7 @@ const AHEAD = {
       "day": "2026-12-23",
       "title": "GDP Q3 third estimate",
       "impact": "High",
-      "status": "verify",
+      "status": "confirmed",
       "source": "BEA schedule",
       "local": "Thu 12:30AM",
       "ny": "8:30AM ET",
@@ -788,7 +798,7 @@ const AHEAD = {
   "warnings": []
 }
 ;
-const BUILT = "2026-11-27T07:21:47.8738717+00:00";
+const BUILT = "2026-11-27T07:24:07.6657388+00:00";
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -900,7 +910,7 @@ function render() {
 
   renderFuture();
   $('foot').textContent = `Calendar data refreshed ${ago(WEEK.generated)} · page built ${ago(BUILT)} · reloads every 5 min · Sources: ForexFactory, Nasdaq, Nager.Date, Bloomberg/CNBC/WSJ/FT/MarketWatch RSS. Not financial advice.`;
-  if (!''.includes('reports/') && $('reportLink').getAttribute('href') === '') $('reportLink').style.display = 'none';
+  if (!'reports/2026-11-30-weekly.md'.includes('reports/') && $('reportLink').getAttribute('href') === '') $('reportLink').style.display = 'none';
 }
 
 const tagRank = t => t === 'MAG7' ? 0 : t === 'NQ' ? 1 : 2;
