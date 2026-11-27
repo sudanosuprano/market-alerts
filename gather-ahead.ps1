@@ -89,7 +89,45 @@ if (Test-Path $fe) {
   }
 } else { $warn += 'future-events.json missing: the Sunday task creates it.' }
 
+# ---- Fed funds rate (New York Fed, official) + next FOMC decision
+$fed = $null
+$fc = Join-Path $dataDir 'fed-cache.json'
+try {
+  if (-not (Test-Fresh $fc 360)) {
+    (Invoke-WebRequest 'https://markets.newyorkfed.org/api/rates/unsecured/effr/last/500.json' -UseBasicParsing -TimeoutSec 30).Content | Out-File $fc -Encoding utf8
+    Set-Stamp $fc
+  }
+} catch { $warn += "Fed rate: $($_.Exception.Message)" }
+if (Test-Path $fc) {
+  $rows = @(([IO.File]::ReadAllText($fc).TrimStart([char]0xFEFF) | ConvertFrom-Json).refRates | Sort-Object effectiveDate)
+  $cur = $rows[-1]; $last = $null
+  for ($i = $rows.Count - 1; $i -gt 0; $i--) {
+    if ($rows[$i].targetRateTo -ne $rows[$i - 1].targetRateTo) {
+      $last = [ordered]@{ effective = $rows[$i].effectiveDate; bps = [int][math]::Round(([double]$rows[$i].targetRateTo - [double]$rows[$i - 1].targetRateTo) * 100)
+        from = "$($rows[$i - 1].targetRateFrom)-$($rows[$i - 1].targetRateTo)" }
+      break
+    }
+  }
+  $todayNY = $nowNY.Date.ToString('yyyy-MM-dd')
+  $upcoming = @($fomcDecisions | Where-Object { $_.d -ge $todayNY } | Sort-Object { $_.d })
+  $mk = {
+    param($m)
+    if (-not $m) { return $null }
+    $dt = [datetime]::ParseExact("$($m.d) 14:00", 'yyyy-MM-dd HH:mm', $null); $t = [DateTimeOffset]::new($dt, $tzNY.GetUtcOffset($dt))
+    [ordered]@{ day = $m.d; sep = $m.sep; utc = $t.ToUniversalTime().ToString('o'); local = [TimeZoneInfo]::ConvertTime($t, $tzLocal).ToString('ddd d MMM, h:mmtt') }
+  }
+  $fed = [ordered]@{
+    lower = [double]$cur.targetRateFrom; upper = [double]$cur.targetRateTo; effr = [double]$cur.percentRate; asOf = $cur.effectiveDate
+    lastChange = $last; next = (& $mk $upcoming[0]); after = (& $mk $(if ($upcoming.Count -gt 1) { $upcoming[1] } else { $null }))
+  }
+  if (-not $upcoming) { $warn += 'FOMC list in common.ps1 needs the next year of meeting dates.' }
+}
+# Market pricing note, written by the Sunday Claude task (optional)
+$fo = Join-Path $dataDir 'fed-outlook.json'
+if ($fed -and (Test-Path $fo)) { $fed.outlook = [IO.File]::ReadAllText($fo).TrimStart([char]0xFEFF) | ConvertFrom-Json }
+
 $out = [ordered]@{
+  fed = $fed
   generated = [DateTimeOffset]::UtcNow.ToString('o'); eventsUpdated = $evUpdated
   weeks = @(for ($w = 0; $w -lt $Weeks; $w++) { $firstMon.AddDays($w * 7).ToString('yyyy-MM-dd') })
   events = $events; earnings = $earnings; opex = $opex; holidays = @($holidays | Sort-Object { $_.day }); warnings = $warn

@@ -13,6 +13,9 @@ Steps:
 4. Update data/future-events.json, the dashboard's look-ahead list of major scheduled US releases for the next 5 weeks (from this coming Monday). Read the current file first and keep its exact JSON format:
    {"updated":"YYYY-MM-DD","note":"...","events":[{"date":"YYYY-MM-DD","timeET":"HH:MM" (24h New York time),"title":"...","impact":"High","status":"confirmed" or "verify","source":"..."}]}
    Cover: Non-Farm Payrolls, CPI, PPI, FOMC decisions (and minutes), Core PCE, GDP, retail sales, ISM manufacturing and services, JOLTS, and the Fed chair's scheduled testimony or major speeches. Check each against official schedules (bls.gov, bea.gov, census.gov, federalreserve.gov, ismworld.org). Use "confirmed" only when an official schedule gives the date, otherwise "verify". Remove dates that have passed, fix any that changed, set "updated" to today's date, and write valid UTF-8 JSON.
+4b. Update data/fed-outlook.json with what markets are pricing for the NEXT FOMC decision (the dashboard shows it under the Fed rate card). Search for CME FedWatch probabilities or a recent Reuters/Bloomberg/CNBC line on rate expectations. Format, valid UTF-8 JSON:
+   {"updated":"YYYY-MM-DD","meeting":"YYYY-MM-DD","text":"<max 90 chars, e.g. ~70% odds of a hold, ~30% of a 0.25 hike>","source":"<e.g. CME FedWatch via CNBC>"}
+   If you can't find a reliable figure from the past week, write "text":"No reliable pricing found this week". Never guess numbers.
 5. Write the full report in markdown to reports/<Monday date YYYY-MM-DD>-weekly.md with these sections:
    - Headline: one or two sentences on the week's biggest risk events.
    - Day-by-day calendar (Mon-Fri): every red-folder event with Sydney time first and NY time in brackets. Mark which ones land in the Asia session or around the NY open (9:30am ET). Then earnings for that day: before-open and after-close names, Mag 7 first in bold, then NQ heavyweights.

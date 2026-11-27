@@ -43,6 +43,16 @@ $nyse = @{
   '2027-12-24'='CLOSED Christmas (observed)'
 }
 
+# FOMC rate decisions (2nd day of each meeting, statement 2pm ET). sep = projections/dot plot.
+# Source: federalreserve.gov (2027 schedule revised 12 Nov 2026; Oct 26-27 2027 is strategy-only, no decision).
+# Add 2028 when the Fed publishes it.
+$fomcDecisions = @(
+  @{ d = '2026-12-09'; sep = $true },
+  @{ d = '2027-01-27'; sep = $false }, @{ d = '2027-03-17'; sep = $true }, @{ d = '2027-04-28'; sep = $false },
+  @{ d = '2027-06-09'; sep = $true },  @{ d = '2027-07-28'; sep = $false }, @{ d = '2027-09-15'; sep = $true },
+  @{ d = '2027-11-17'; sep = $true },  @{ d = '2028-01-26'; sep = $false }
+)
+
 # Magnificent 7 and other Nasdaq-100 heavyweights: always listed, whatever the market-cap cut-off
 $mag7 = 'AAPL','MSFT','NVDA','AMZN','GOOGL','GOOG','META','TSLA'
 $nqHeavy = 'AVGO','COST','NFLX','AMD','PLTR','ASML','CSCO','ADBE','QCOM','INTU','TXN','AMAT','MU','LRCX','KLAC','PANW','ARM','INTC','PEP','TMUS','ISRG','AMGN','BKNG','SBUX','CRWD','MRVL','SNPS','CDNS','ADI','PDD','MELI','ABNB','SHOP','APP','TEAM','DDOG','ORCL','CRM'
