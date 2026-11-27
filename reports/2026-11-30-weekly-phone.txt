@@ -3,12 +3,12 @@ Red folder feed stale - verify on ForexFactory
 
 MON: nothing major found
 WED (Syd): 2am JOLTS + ISM Mfg (10a ET) | Tue AMC: MRVL, BHP(tbc)
-THU (Syd): ADP ~12:15am? (verify) | Wed AMC: *none, CRM, SNOW
+THU (Syd): ADP ~12:15am? (verify) | Wed AMC: CRM, SNOW
 FRI (Syd): 2am ISM Services (10a ET) | Thu BMO: RY, TD, CM
 SAT (Syd): 12:30am NFP (8:30a ET) | Fri earnings: none
 
 Mag 7: none reporting this week or in next 9 wks
-OPEX: none this week. Next 18 Dec (quad witching). Roll date: check CME
+OPEX: none this week. Next 18 Dec (quad witching). ES/NQ roll Thu 10 Dec
 Holidays: none US/AU this week
 
 WATCH:

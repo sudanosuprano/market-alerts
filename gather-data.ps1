@@ -228,6 +228,10 @@ if ($opexLines) { $opexLines | ForEach-Object { $out.Add($_) } }
 else { $out.Add('No monthly OPEX this window (0DTE/weekly options still expire daily).') }
 $out.Add("Next monthly OPEX: $($next.ToString('ddd d MMM yyyy'))$(if ($nextQuad) {' (QUAD WITCHING)'})")
 $j.nextOpex = [ordered]@{ day = $next.ToString('yyyy-MM-dd'); quad = [bool]$nextQuad }
+# Next ES/NQ roll date (8 days before the next quad witching), so it's always visible
+$qm = [datetime]::new($nyDates[0].Year, $nyDates[0].Month, 1); $nextRoll = $null
+while (-not $nextRoll) { if ($qm.Month % 3 -eq 0) { $r8 = (Get-Opex $qm.Year $qm.Month).AddDays(-8); if ($r8 -ge $nyDates[0]) { $nextRoll = $r8 } }; $qm = $qm.AddMonths(1) }
+$out.Add("Next ES/NQ roll date: $($nextRoll.ToString('ddd d MMM yyyy'))")
 $out.Add('')
 
 # ---- 4. Holidays ------------------------------------------------------------
