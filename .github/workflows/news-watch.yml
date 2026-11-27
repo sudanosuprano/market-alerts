@@ -30,4 +30,4 @@ jobs:
         shell: pwsh
         run: ./news-watch.ps1
       - name: Save state
-        run: bash .github/save-state.sh "news: update"
+        run: bash .github/save-state.sh "news update"

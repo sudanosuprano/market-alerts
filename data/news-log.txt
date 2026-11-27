@@ -34,3 +34,4 @@
 2026-11-27 17:43:49 ALERT [8] Huang's 'shocking return' to Nvidia; fallout to tighten China's advanced-chip access | https://www.bloomberg.com/news/videos/2026-11-27/bloomberg-tech-asia-11-27-2026-video | pub=2026-11-27T06:10:54Z
 2026-11-27 17:49:36 NEW 1 headlines
 2026-11-27 17:59:36 NEW 3 headlines
+2026-11-27 18:04:36 NEW 5 headlines

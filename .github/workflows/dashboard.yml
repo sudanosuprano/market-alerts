@@ -25,4 +25,4 @@ jobs:
         shell: pwsh
         run: ./build-dashboard.ps1 -Refresh
       - name: Save state
-        run: bash .github/save-state.sh "dashboard: refresh"
+        run: bash .github/save-state.sh "dashboard refresh"
