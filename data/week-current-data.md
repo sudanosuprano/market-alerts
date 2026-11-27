@@ -1,6 +1,6 @@
 # Market data pack: weekly
 Week of Mon 23 Nov 2026 (NY time)
-Generated Fri 27 Nov 11:04PM local (Australia/Sydney). Local times first, NY time in brackets.
+Generated Sat 28 Nov 12:24AM local (Australia/Sydney). Local times first, NY time in brackets.
 
 ## Red folder (high impact) events
 - Wed 25 Nov 11:30AM (Tue 7:30PM ET) **AUD** CPI m/m | fcst 0.4% | prev 0.8%
@@ -17,9 +17,9 @@ USD orange folder (medium), for reference:
 
 ## Earnings (market cap >= $50 B)
 MAG7 = Magnificent 7. NQ = other Nasdaq-100 heavyweights. Others are any company worth $50B+.
-- Mon 23 Nov NY: **NQ** CRWD (time TBC, $217B), HPE (time TBC, $53B), A (time TBC, $52B)
+- Mon 23 Nov NY: **NQ** CRWD (time TBC, $216B), HPE (time TBC, $54B), A (time TBC, $50B)
 - Tue 24 Nov NY: **NQ** ADI (time TBC, $152B), DELL (time TBC, $188B), MDT (time TBC, $123B), ADSK (time TBC, $53B)
-- Wed 25 Nov NY: DE (time TBC, $165B)
+- Wed 25 Nov NY: DE (time TBC, $173B)
 - Thu 26 Nov NY: none
 - Fri 27 Nov NY: none
 - Coming up (next 9 weeks, Mag 7 only; may be estimated dates): none scheduled yet
