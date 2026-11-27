@@ -128,7 +128,18 @@
   .links a { color: var(--muted); text-decoration: none; }
   .links a:hover { color: var(--gold); }
   footer { margin-top: 18px; font-size: 11px; color: var(--dim); }
-  @media (max-width: 1350px) { .layout { grid-template-columns: 1fr; } aside { position: static; } .news { max-height: 420px; } }
+  @media (max-width: 1350px) { .layout { grid-template-columns: minmax(0, 1fr); } aside { position: static; } .news { max-height: 420px; } }
+  @media (max-width: 700px) {
+    body { padding: 12px 10px 30px; }
+    header { gap: 10px; }
+    .head-right { margin-left: 0; }
+    .chip, .flag { white-space: normal; }
+    .wordmark { font-size: 26px; }
+    .day.past { display: none; }          /* on a phone, start from today */
+    .news { max-height: 60vh; }
+    .wk > summary { gap: 8px; }
+    .wk-name { min-width: 0; width: 100%; }
+  }
   @media (max-width: 900px) { .week { grid-template-columns: 1fr; } .day { min-height: 0; } }
 </style>
 </head>
