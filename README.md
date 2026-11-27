@@ -4,6 +4,7 @@
 - **Dashboard:** https://sudanosuprano.github.io/market-alerts/ (add it to your phone's home screen)
 - **Jobs** (`.github/workflows/`): news watcher about every 10 min · dashboard data hourly · week-ahead report Sunday 07:00 UTC (6pm Sydney in summer) · daily heads-up 21:00 UTC Sun–Thu (8am Sydney Mon–Fri in summer) · "Send test push" (run it by hand from the Actions tab).
 - **Secrets** (repo Settings → Secrets → Actions): `NTFY_TOPIC` (your ntfy channel) and `CLAUDE_CODE_OAUTH_TOKEN` (from `claude setup-token`, valid about a year; rerun it and `gh secret set CLAUDE_CODE_OAUTH_TOKEN` when it expires).
+- **Fed rate card** (top of the dashboard): the current target range from the New York Fed's official feed (refreshed every 6h) and the next FOMC decision from the list in `common.ps1`. Add the next year's meeting dates to that list when the Fed publishes them. The "market pricing" line comes from `data/fed-outlook.json`, which the Sunday task writes.
 - Cloud jobs commit their results (data/, docs/, reports/), so run `git pull` before changing files here.
 - The PC versions below are switched off (Windows tasks disabled, Claude app tasks paused) to avoid duplicate alerts. They still work if you turn them back on.
 
