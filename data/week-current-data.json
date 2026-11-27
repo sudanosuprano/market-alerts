@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-27T13:24:27.9090833+00:00",
+  "generated": "2026-11-27T15:05:03.4523872+00:00",
   "mode": "weekly",
   "title": "Week of Mon 23 Nov 2026 (NY time)",
   "days": [
@@ -124,7 +124,7 @@
       "day": "2026-11-23",
       "symbol": "CRWD",
       "name": "CrowdStrike Holdings, Inc.",
-      "capB": 216.0,
+      "capB": 217.0,
       "time": "TBC",
       "tag": "NQ"
     },
@@ -132,7 +132,7 @@
       "day": "2026-11-23",
       "symbol": "HPE",
       "name": "Hewlett Packard Enterprise Company",
-      "capB": 54.0,
+      "capB": 53.0,
       "time": "TBC",
       "tag": ""
     },
@@ -140,7 +140,7 @@
       "day": "2026-11-23",
       "symbol": "A",
       "name": "Agilent Technologies, Inc.",
-      "capB": 50.0,
+      "capB": 52.0,
       "time": "TBC",
       "tag": ""
     },
@@ -148,7 +148,7 @@
       "day": "2026-11-24",
       "symbol": "DELL",
       "name": "Dell Technologies Inc.",
-      "capB": 188.0,
+      "capB": 189.0,
       "time": "TBC",
       "tag": ""
     },
@@ -156,7 +156,7 @@
       "day": "2026-11-24",
       "symbol": "ADI",
       "name": "Analog Devices, Inc.",
-      "capB": 152.0,
+      "capB": 161.0,
       "time": "TBC",
       "tag": "NQ"
     },
@@ -172,7 +172,7 @@
       "day": "2026-11-24",
       "symbol": "ADSK",
       "name": "Autodesk, Inc.",
-      "capB": 53.0,
+      "capB": 52.0,
       "time": "TBC",
       "tag": ""
     },
@@ -180,7 +180,7 @@
       "day": "2026-11-25",
       "symbol": "DE",
       "name": "Deere & Company",
-      "capB": 173.0,
+      "capB": 165.0,
       "time": "TBC",
       "tag": ""
     }
