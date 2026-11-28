@@ -71,3 +71,4 @@
 2026-11-28 19:00:56 NOTE [7] US regulators close United Fidelity Bank, largest US bank failure in two years | https://www.bloomberg.com/news/articles/2026-11-28/united-fidelity-is-shut-in-biggest-us-bank-collapse-in-two-years | pub=2026-11-28T06:24:35Z
 2026-11-28 20:51:47 NEW 3 headlines
 2026-11-28 21:47:15 NEW 6 headlines
+2026-11-28 22:36:54 NEW 2 headlines
