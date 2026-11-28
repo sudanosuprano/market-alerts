@@ -1,0 +1,57 @@
+[
+  {
+    "lastYearRptDt": "N/A",
+    "lastYearEPS": "$0.42",
+    "time": "time-not-supplied",
+    "symbol": "EBF",
+    "name": "Ennis, Inc.",
+    "marketCap": "$505,849,376",
+    "fiscalQuarterEnding": "Nov/2026",
+    "epsForecast": "",
+    "noOfEsts": "3"
+  },
+  {
+    "lastYearRptDt": "12/22/2025",
+    "lastYearEPS": "($0.73)",
+    "time": "time-not-supplied",
+    "symbol": "ENGN",
+    "name": "enGene Therapeutics Inc.",
+    "marketCap": "$121,299,536",
+    "fiscalQuarterEnding": "Oct/2026",
+    "epsForecast": "($0.48)",
+    "noOfEsts": "3"
+  },
+  {
+    "lastYearRptDt": "N/A",
+    "lastYearEPS": "($0.08)",
+    "time": "time-not-supplied",
+    "symbol": "SIF",
+    "name": "SIFCO Industries, Inc.",
+    "marketCap": "$89,934,360",
+    "fiscalQuarterEnding": "Sep/2026",
+    "epsForecast": "",
+    "noOfEsts": "3"
+  },
+  {
+    "lastYearRptDt": "N/A",
+    "lastYearEPS": "($0.02)",
+    "time": "time-not-supplied",
+    "symbol": "MWYN",
+    "name": "Marwynn Holdings, Inc.",
+    "marketCap": "$37,018,048",
+    "fiscalQuarterEnding": "Oct/2026",
+    "epsForecast": "",
+    "noOfEsts": "1"
+  },
+  {
+    "lastYearRptDt": "12/22/2025",
+    "lastYearEPS": "$12",
+    "time": "time-not-supplied",
+    "symbol": "MSS",
+    "name": "Maison Solutions Inc.",
+    "marketCap": "$2,419,194",
+    "fiscalQuarterEnding": "Oct/2026",
+    "epsForecast": "$0.20",
+    "noOfEsts": "1"
+  }
+]

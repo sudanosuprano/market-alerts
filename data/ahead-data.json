@@ -22,55 +22,15 @@
       "local": "Thu 28 Jan, 6:00AM"
     }
   },
-  "generated": "2026-11-28T04:02:52.1937447+00:00",
+  "generated": "2026-11-28T05:09:05.0671555+00:00",
   "eventsUpdated": "2026-11-27",
   "weeks": [
-    "2026-11-30",
     "2026-12-07",
     "2026-12-14",
-    "2026-12-21"
+    "2026-12-21",
+    "2026-12-28"
   ],
   "events": [
-    {
-      "day": "2026-12-01",
-      "title": "ISM Manufacturing PMI",
-      "impact": "High",
-      "status": "verify",
-      "source": "ISM usual schedule (1st business day)",
-      "local": "Wed 2:00AM",
-      "ny": "10:00AM ET",
-      "sort": 1796137200
-    },
-    {
-      "day": "2026-12-01",
-      "title": "JOLTS (Oct)",
-      "impact": "High",
-      "status": "confirmed",
-      "source": "BLS schedule",
-      "local": "Wed 2:00AM",
-      "ny": "10:00AM ET",
-      "sort": 1796137200
-    },
-    {
-      "day": "2026-12-03",
-      "title": "ISM Services PMI",
-      "impact": "High",
-      "status": "verify",
-      "source": "ISM usual schedule (3rd business day)",
-      "local": "Fri 2:00AM",
-      "ny": "10:00AM ET",
-      "sort": 1796310000
-    },
-    {
-      "day": "2026-12-04",
-      "title": "Non-Farm Payrolls + Unemployment Rate (Nov)",
-      "impact": "High",
-      "status": "confirmed",
-      "source": "BLS schedule",
-      "local": "Sat 12:30AM",
-      "ny": "8:30AM ET",
-      "sort": 1796391000
-    },
     {
       "day": "2026-12-09",
       "title": "FOMC rate decision + dot plot (press conference 2:30pm ET)",
@@ -120,81 +80,19 @@
       "local": "Thu 12:30AM",
       "ny": "8:30AM ET",
       "sort": 1798032600
+    },
+    {
+      "day": "2026-12-30",
+      "title": "FOMC minutes (Dec 8-9 meeting)",
+      "impact": "High",
+      "status": "verify",
+      "source": "Usual 3 weeks after meeting; not listed on federalreserve.gov",
+      "local": "Thu 6:00AM",
+      "ny": "2:00PM ET",
+      "sort": 1798657200
     }
   ],
   "earnings": [
-    {
-      "day": "2026-12-01",
-      "symbol": "BHP",
-      "name": "BHP Group Limited",
-      "capB": 179.0,
-      "tag": "",
-      "time": "TBC"
-    },
-    {
-      "day": "2026-12-01",
-      "symbol": "MRVL",
-      "name": "Marvell Technology, Inc.",
-      "capB": 115.0,
-      "tag": "NQ",
-      "time": "AMC"
-    },
-    {
-      "day": "2026-12-02",
-      "symbol": "CRM",
-      "name": "Salesforce, Inc.",
-      "capB": 162.0,
-      "tag": "NQ",
-      "time": "AMC"
-    },
-    {
-      "day": "2026-12-02",
-      "symbol": "BMO",
-      "name": "Bank Of Montreal",
-      "capB": 111.0,
-      "tag": "",
-      "time": "BMO"
-    },
-    {
-      "day": "2026-12-02",
-      "symbol": "BNS",
-      "name": "Bank of Nova Scotia (The)",
-      "capB": 104.0,
-      "tag": "",
-      "time": "BMO"
-    },
-    {
-      "day": "2026-12-02",
-      "symbol": "SNOW",
-      "name": "Snowflake Inc.",
-      "capB": 94.0,
-      "tag": "",
-      "time": "AMC"
-    },
-    {
-      "day": "2026-12-03",
-      "symbol": "RY",
-      "name": "Royal Bank Of Canada",
-      "capB": 261.0,
-      "tag": "",
-      "time": "BMO"
-    },
-    {
-      "day": "2026-12-03",
-      "symbol": "TD",
-      "name": "Toronto Dominion Bank (The)",
-      "capB": 190.0,
-      "tag": "",
-      "time": "BMO"
-    },
-    {
-      "day": "2026-12-03",
-      "symbol": "CM",
-      "name": "Canadian Imperial Bank of Commerce",
-      "capB": 95.0,
-      "tag": "",
-      "time": "BMO"
-    },
     {
       "day": "2026-12-08",
       "symbol": "SNPS",
@@ -308,6 +206,26 @@
       "day": "2026-12-25",
       "country": "AU bank holiday",
       "name": "Christmas Day (nationwide)"
+    },
+    {
+      "day": "2026-12-28",
+      "country": "AU bank holiday",
+      "name": "St. Stephen's Day (nationwide)"
+    },
+    {
+      "day": "2027-01-01",
+      "country": "US market",
+      "name": "CLOSED New Year"
+    },
+    {
+      "day": "2027-01-01",
+      "country": "US bank holiday",
+      "name": "New Year's Day (nationwide)"
+    },
+    {
+      "day": "2027-01-01",
+      "country": "AU bank holiday",
+      "name": "New Year's Day (nationwide)"
     }
   ],
   "warnings": []

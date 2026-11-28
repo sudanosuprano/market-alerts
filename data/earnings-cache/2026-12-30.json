@@ -1,0 +1,46 @@
+[
+  {
+    "lastYearRptDt": "12/31/2025",
+    "lastYearEPS": "$0.64",
+    "time": "time-not-supplied",
+    "symbol": "TAYD",
+    "name": "Taylor Devices, Inc.",
+    "marketCap": "$174,961,792",
+    "fiscalQuarterEnding": "Nov/2026",
+    "epsForecast": "$0.88",
+    "noOfEsts": "1"
+  },
+  {
+    "lastYearRptDt": "N/A",
+    "lastYearEPS": "$0.32",
+    "time": "time-not-supplied",
+    "symbol": "NRT",
+    "name": "North European Oil Royality Trust",
+    "marketCap": "$57,808,812",
+    "fiscalQuarterEnding": "Oct/2026",
+    "epsForecast": "",
+    "noOfEsts": "1"
+  },
+  {
+    "lastYearRptDt": "N/A",
+    "lastYearEPS": "N/A",
+    "time": "time-not-supplied",
+    "symbol": "RCON",
+    "name": "Recon Technology, Ltd.",
+    "marketCap": "$21,012,896",
+    "fiscalQuarterEnding": "Sep/2026",
+    "epsForecast": "",
+    "noOfEsts": "1"
+  },
+  {
+    "lastYearRptDt": "N/A",
+    "lastYearEPS": "N/A",
+    "time": "time-not-supplied",
+    "symbol": "DOGZ",
+    "name": "Dogness (International) Corporation",
+    "marketCap": "$4,021,034",
+    "fiscalQuarterEnding": "Sep/2026",
+    "epsForecast": "",
+    "noOfEsts": "1"
+  }
+]
