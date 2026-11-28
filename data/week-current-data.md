@@ -1,6 +1,6 @@
 # Market data pack: weekly
 Week of Mon 23 Nov 2026 (NY time)
-Generated Sat 28 Nov 1:59PM local (Australia/Sydney). Local times first, NY time in brackets.
+Generated Sat 28 Nov 3:02PM local (Australia/Sydney). Local times first, NY time in brackets.
 
 ## Red folder (high impact) events
 - Wed 25 Nov 11:30AM (Tue 7:30PM ET) **AUD** CPI m/m | fcst 0.4% | prev 0.8%
