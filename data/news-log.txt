@@ -69,3 +69,4 @@
 2026-11-28 17:47:40 NOTE [7] OIL: Iran double-tapping ships in Hormuz to deter traffic; 6+ vessels hit in two months | https://www.ft.com/content/f9c4da80-cc2c-4b0b-b083-b7acd0337790?syn-25a6b1a6=1 | pub=2026-11-28T05:00:41Z
 2026-11-28 19:00:51 NEW 2 headlines
 2026-11-28 19:00:56 NOTE [7] US regulators close United Fidelity Bank, largest US bank failure in two years | https://www.bloomberg.com/news/articles/2026-11-28/united-fidelity-is-shut-in-biggest-us-bank-collapse-in-two-years | pub=2026-11-28T06:24:35Z
+2026-11-28 20:51:47 NEW 3 headlines
