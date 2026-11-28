@@ -1,6 +1,6 @@
 # Market data pack: weekly
 Week of Mon 30 Nov 2026 (NY time)
-Generated Sat 28 Nov 10:55PM local (Australia/Sydney). Local times first, NY time in brackets.
+Generated Sun 29 Nov 12:07AM local (Australia/Sydney). Local times first, NY time in brackets.
 
 ## Red folder (high impact) events
 _Feed has not rolled over to this week yet. See warnings._
