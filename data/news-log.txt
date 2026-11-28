@@ -65,3 +65,5 @@
 2026-11-28 13:39:22 NEW 2 headlines
 2026-11-28 14:38:37 NEW 1 headlines
 2026-11-28 15:42:38 NEW 1 headlines
+2026-11-28 17:47:33 NEW 5 headlines
+2026-11-28 17:47:40 NOTE [7] OIL: Iran double-tapping ships in Hormuz to deter traffic; 6+ vessels hit in two months | https://www.ft.com/content/f9c4da80-cc2c-4b0b-b083-b7acd0337790?syn-25a6b1a6=1 | pub=2026-11-28T05:00:41Z
